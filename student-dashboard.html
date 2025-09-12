@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard - CA-GyanSagar</title>
+    <title>Student Dashboard - caexam</title>
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
     
     <style>
@@ -197,32 +194,18 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="images/logo.png" alt="CA-GyanSagar" class="logo">
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#test-series" class="nav-link">Test Series</a>
-                <a href="index.html#pricing" class="nav-link">Pricing</a>
-                <a href="index.html#free-tests" class="nav-link">Free Tests</a>
+                <img src="images/logo.png" alt="caexam" class="logo">
             </div>
             <div class="nav-actions">
                 <a href="index.html" class="btn btn-outline">Back to Home</a>
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Dashboard -->
     <div class="dashboard">
-        <!-- Sidebar -->
         <div class="sidebar">
             <div class="sidebar-header">
                 <h3>Student Dashboard</h3>
@@ -257,7 +240,6 @@
             </div>
         </div>
         
-        <!-- Main Content -->
         <div class="main-content">
             <div class="dashboard-header">
                 <h2>Welcome back, Priya!</h2>
@@ -268,8 +250,8 @@
                 <div class="dashboard-card">
                     <h3>My Active Plan</h3>
                     <p><strong>Gold Pack - CA Foundation</strong></p>
-                    <p>Valid until: December 31, 2023</p>
-                    <p>8/8 tests remaining</p>
+                    <p>Valid until: December 31, 2025</p>
+                    <p>12/12 tests remaining</p>
                 </div>
                 
                 <div class="dashboard-card">
@@ -297,43 +279,17 @@
             
             <div class="recent-tests">
                 <h3>Recent Test Results</h3>
-                
                 <div class="test-item">
                     <div class="test-info">
                         <h4>Accounting - Test #5</h4>
-                        <p>Completed on: October 15, 2023</p>
+                        <p>Completed on: October 15, 2024</p>
                     </div>
                     <div class="test-score score-high">85%</div>
-                </div>
-                
-                <div class="test-item">
-                    <div class="test-info">
-                        <h4>Business Laws - Test #3</h4>
-                        <p>Completed on: October 12, 2023</p>
-                    </div>
-                    <div class="test-score score-medium">72%</div>
-                </div>
-                
-                <div class="test-item">
-                    <div class="test-info">
-                        <h4>Quantitative Aptitude - Test #4</h4>
-                        <p>Completed on: October 8, 2023</p>
-                    </div>
-                    <div class="test-score score-low">65%</div>
-                </div>
-                
-                <div class="test-item">
-                    <div class="test-info">
-                        <h4>Economics - Test #2</h4>
-                        <p>Completed on: October 5, 2023</p>
-                    </div>
-                    <div class="test-score score-high">88%</div>
                 </div>
             </div>
             
             <div class="downloads-section">
                 <h3>Available Downloads</h3>
-                
                 <div class="download-item">
                     <div class="download-info">
                         <h4>Accounting - Test #5 Solutions</h4>
@@ -343,61 +299,9 @@
                         <i class="fas fa-download"></i> Download
                     </a>
                 </div>
-                
-                <div class="download-item">
-                    <div class="download-info">
-                        <h4>Business Laws - Test #3 Solutions</h4>
-                        <p>PDF - 1.8 MB</p>
-                    </div>
-                    <a href="#" class="btn btn-primary">
-                        <i class="fas fa-download"></i> Download
-                    </a>
-                </div>
-                
-                <div class="download-item">
-                    <div class="download-info">
-                        <h4>Quantitative Aptitude Formula Sheet</h4>
-                        <p>PDF - 1.2 MB</p>
-                    </div>
-                    <a href="#" class="btn btn-primary">
-                        <i class="fas fa-download"></i> Download
-                    </a>
-                </div>
-                
-                <div class="download-item">
-                    <div class="download-info">
-                        <h4>Economics Concepts Summary</h4>
-                        <p>PDF - 3.1 MB</p>
-                    </div>
-                    <a href="#" class="btn btn-primary">
-                        <i class="fas fa-download"></i> Download
-                    </a>
-                </div>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript -->
-    <script>
-        // Mobile Navigation
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-        
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-        }
-        
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-    </script>
 </body>
 </html>

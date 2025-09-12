@@ -1,28 +1,37 @@
 //
-// 🔴 PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE 🔴
+// 🔴 YAHAN APNA NAYA GOOGLE SCRIPT URL PASTE KAREIN 🔴
 //
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzquS-P1jGoQA6D7AnsK0NmdG4Bv54YcZdRVZIMKBdAXdDUc4hMHDhteGJrEWas6Kkpqw/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxm2yhSbYtwudph3Ba_nxCfT35PV9t1E1txYdPu8ljNeEFRzt0PBdpra5Td2hULakU-Hg/exec';
 
 // DOM Ready
 document.addEventListener('DOMContentLoaded', function() {
-    // --- Google Sheet Submission Logic ---
+    // --- Google Sheet Submission Logic (Updated & More Reliable) ---
     async function submitToGoogleSheet(formData, sheetName) {
+        if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxm2yhSbYtwudph3Ba_nxCfT35PV9t1E1txYdPu8ljNeEFRzt0PBdpra5Td2hULakU-Hg/exec') {
+            console.error('Google Script URL is not set. Please update it in script.js');
+            alert('Form submission is not configured correctly. Please add the Google Script URL in script.js');
+            return false;
+        }
         try {
-            const response = await fetch(GOOGLE_SCRIPT_URL, {
+            // This method sends the data and continues without waiting for a reply that browsers
+            // might block due to security (CORS). This is more reliable for this use case.
+            await fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
-                mode: 'cors',
+                mode: 'no-cors', // Important: This prevents the browser from showing a CORS error
+                cache: 'no-cache',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json'
                 },
+                redirect: 'follow',
                 body: JSON.stringify({
                     sheet: sheetName,
                     formData: formData
-                }),
+                })
             });
-            const result = await response.json();
-            return result.status === 'success';
+            // If the request above doesn't cause a network error, we assume it was successful.
+            return true;
         } catch (error) {
-            console.error('Error submitting to Google Sheet:', error);
+            console.error('Network error while submitting to Google Sheet:', error);
             return false;
         }
     }
@@ -54,6 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginBtn = document.getElementById('loginBtn');
     const loginModal = document.getElementById('loginModal');
     const closeModal = document.getElementById('closeModal');
+    const freeTestModal = document.getElementById('freeTestModal');
+
 
     if (loginBtn && loginModal) {
         loginBtn.addEventListener('click', function() {
@@ -72,8 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close modal when clicking outside
     window.addEventListener('click', function(event) {
         if (event.target === loginModal || event.target === freeTestModal) {
-            loginModal.style.display = 'none';
-            freeTestModal.style.display = 'none';
+            if(loginModal) loginModal.style.display = 'none';
+            if(freeTestModal) freeTestModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
     });
@@ -98,8 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Login Successful!');
-            // Redirect to dashboard after "successful" login
-            window.location.href = 'student-dashboard.html';
+            window.location.href = 'student-dashboard.htm';
         });
     }
 
@@ -121,10 +131,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (success) {
                 alert('Registration successful! You can now log in.');
                 this.reset();
-                // Switch to login tab
                 document.querySelector('.tab-btn[data-tab="login"]').click();
             } else {
-                alert('There was an error. Please try again.');
+                alert('There was an error. Please check your internet connection and try again.');
             }
             submitButton.textContent = 'Register';
             submitButton.disabled = false;
@@ -133,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // --- Free Test Modal & Form Logic ---
-    const freeTestModal = document.getElementById('freeTestModal');
     const openFreeTestModalBtns = document.querySelectorAll('.open-free-test-modal');
     const closeFreeTestModal = document.getElementById('closeFreeTestModal');
     const freeTestForm = document.getElementById('freeTestForm');
@@ -154,7 +162,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Google Drive link for the free test PDF
     const freeTestPdfUrl = 'https://drive.google.com/uc?export=download&id=1ztptHMUr3KXA_vq8It1bGsDQrc8d5rNG';
 
     if (freeTestForm) {
@@ -173,21 +180,19 @@ document.addEventListener('DOMContentLoaded', function() {
             if (success) {
                 alert('Thank you! Your free test paper will begin downloading now.');
                 
-                // Trigger the download
                 const downloadLink = document.createElement('a');
                 downloadLink.href = freeTestPdfUrl;
-                downloadLink.download = 'caexam-Free-Test-Paper.pdf'; // Suggested filename
+                downloadLink.download = 'caexam-Free-Test-Paper.pdf';
                 document.body.appendChild(downloadLink);
                 downloadLink.click();
                 document.body.removeChild(downloadLink);
 
-                // Close the modal and reset the form
                 freeTestModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
                 this.reset();
 
             } else {
-                alert('There was an error submitting your details. Please try again.');
+                alert('There was an error submitting your details. Please check your internet connection and try again.');
             }
             
             submitButton.textContent = 'Download Now';
@@ -214,30 +219,35 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentSlideIndex = 0;
     const slides = document.querySelectorAll('.testimonial-slide');
     const dots = document.querySelectorAll('.dot');
-    
+    let sliderInterval;
+
     function showSlide(n) {
         if (!slides.length) return;
-        currentSlideIndex = (n + slides.length) % slides.length; // Loop around
+        currentSlideIndex = (n + slides.length) % slides.length;
         slides.forEach(slide => slide.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
         slides[currentSlideIndex].classList.add('active');
         dots[currentSlideIndex].classList.add('active');
     }
 
+    function startSlider() {
+        sliderInterval = setInterval(() => {
+            showSlide(currentSlideIndex + 1);
+        }, 5000);
+    }
+    
     dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => showSlide(index));
+        dot.addEventListener('click', () => {
+             clearInterval(sliderInterval);
+             showSlide(index);
+             startSlider();
+        });
     });
 
-    // Auto slide change every 5 seconds
-    setInterval(() => {
-        showSlide(currentSlideIndex + 1);
-    }, 5000);
-    
-    // Initial slide show
     if (slides.length > 0) {
         showSlide(0);
+        startSlider();
     }
-
 
     // --- Coupon Code Copy Functionality ---
     const copyCouponBtn = document.getElementById('horizontalCouponBtn');
@@ -245,21 +255,19 @@ document.addEventListener('DOMContentLoaded', function() {
         copyCouponBtn.addEventListener('click', function() {
             const couponCode = 'SAVE100';
             navigator.clipboard.writeText(couponCode).then(() => {
-                const originalText = this.innerHTML;
-                this.innerHTML = 'Copied!';
+                const originalText = this.dataset.en;
+                this.textContent = 'Copied!';
                 setTimeout(() => {
-                    this.innerHTML = originalText;
+                    this.textContent = this.dataset.en;
                 }, 2000);
             }).catch(err => {
                 console.error('Failed to copy coupon code: ', err);
-                alert('Failed to copy code.');
             });
         });
     }
     
 
     // --- Language Switching ---
-    // (This functionality is kept as it was in the original file)
     const languageSelect = document.getElementById('languageSelect');
     if (languageSelect) {
         const savedLanguage = localStorage.getItem('preferredLanguage');
@@ -278,10 +286,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const elements = document.querySelectorAll('[data-en], [data-hi]');
         elements.forEach(element => {
             const text = (lang === 'hi') ? element.getAttribute('data-hi') : element.getAttribute('data-en');
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = text;
-            } else {
-                element.textContent = text;
+            if(text){
+                 if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = text;
+                } else {
+                    element.textContent = text;
+                }
             }
         });
     }
@@ -313,23 +323,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Global function for testimonial slider dots (accessible from HTML onclick)
-function currentSlide(n) {
-    // This is a bridge for the inline onclick handler to the new slider logic.
-    // It's better to handle this within the DOMContentLoaded event listener,
-    // but this ensures the existing HTML works without modification.
-    const event = new CustomEvent('slideChange', { detail: { slideNum: n - 1 } });
-    document.dispatchEvent(event);
-}
-
-document.addEventListener('slideChange', function(e) {
-    const slideIndex = e.detail.slideNum;
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const dots = document.querySelectorAll('.dot');
-    
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-    
-    if (slides[slideIndex]) slides[slideIndex].classList.add('active');
-    if (dots[slideIndex]) dots[slideIndex].classList.add('active');
-});

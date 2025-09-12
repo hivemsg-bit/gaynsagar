@@ -1,20 +1,17 @@
-/* Your existing :root + updates */
+/* Your original styles.css content + theme adjustments */
 :root {
-    --primary-color: #0a5fc5; /* caexams.in blue */
-    --secondary-color: #f8f9fa; /* Light gray */
-    /* Remove orange gradients for minimalism */
+    --primary-color: #0a5fc5;
+    --background-color: #f8f9fa;
+    --success-color: #28a745;
+    /* Add all vars from your original */
 }
 
-/* Hero: Solid blue bg instead of image/gradient */
-.hero { background-color: #0a5fc5; color: white; }
+.hero-banner { background-color: var(--primary-color); color: white; padding: 80px 0; text-align: center; }
+.card { border: 1px solid #dee2e6; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 20px; border-radius: 8px; }
+.tournament-banner { background: var(--primary-color); color: white; padding: 30px; text-align: center; margin: 40px 0; }
+.chat-box { position: fixed; bottom: 20px; right: 20px; width: 320px; height: 420px; background: white; border: 1px solid #dee2e6; border-radius: 8px; display: none; z-index: 1000; }
+.chat-header { background: var(--primary-color); color: white; padding: 15px; border-radius: 8px 8px 0 0; }
+.chat-body { padding: 15px; height: 300px; overflow-y: auto; }
+.updates { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
 
-/* Cards: Subtle shadows */
-.card { box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #dee2e6; }
-
-/* Tournament Banner */
-.tournament-banner { background: #0a5fc5; color: white; padding: 30px; text-align: center; }
-
-/* Chat Box */
-.chat-box { /* As previous, fixed position */ }
-
-/* Other existing styles... */
+/* Your full original CSS here... */

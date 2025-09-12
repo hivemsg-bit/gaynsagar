@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - CA Test Series</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation (Your original) -->
+
+    <!-- Thank You Section -->
+    <section class="thankyou" style="padding: 100px 0; text-align: center;">
+        <div class="container">
+            <div class="thankyou-content">
+                <i class="fas fa-check-circle checkmark" style="font-size: 5rem; color: #28a745;"></i>
+                <h1>Thank You for Your Purchase!</h1>
+                <p>Your payment details are confirmed. Access unlocked after WhatsApp verification.</p>
+                <div class="order-details">
+                    <h3>Order Summary</h3>
+                    <p id="thank-plan"></p>
+                    <p id="thank-amount"></p>
+                    <p>Order ID: <span id="order-id">CATS-2024-001</span></p>
+                </div>
+                <div class="downloads-section card" style="margin-top: 30px;">
+                    <h3>Download Your Materials</h3>
+                    <div class="download-item">
+                        <h4>Test Series PDFs</h4>
+                        <a href="https://drive.google.com/file/d/YOUR_SERIES_ID/view" class="btn btn-primary">Download</a>
+                    </div>
+                    <!-- Add more -->
+                </div>
+                <div class="thankyou-buttons">
+                    <a href="student-dashboard.html" class="btn btn-primary">Dashboard</a>
+                    <a href="index.html" class="btn btn-outline">Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Your original) -->
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('thank-plan').innerHTML = `<strong>Plan:</strong> ${urlParams.get('plan') || 'Gold'}`;
+        document.getElementById('thank-amount').innerHTML = `<strong>Amount:</strong> ₹${urlParams.get('amount') || '8000'}`;
+    </script>
+</body>
+</html>

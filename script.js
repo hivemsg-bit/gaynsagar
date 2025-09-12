@@ -1,5 +1,5 @@
 //
-// 🔴 YAHAN APNA NAYA GOOGLE SCRIPT URL PASTE KAREIN 🔴
+// 🔴 YAHAN APNA NAYA GOOGLE SCRIPT URL PASTE KAREIN 
 //
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxm2yhSbYtwudph3Ba_nxCfT35PV9t1E1txYdPu8ljNeEFRzt0PBdpra5Td2hULakU-Hg/exec';
 

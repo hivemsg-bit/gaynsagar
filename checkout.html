@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - CA Test Series</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation (Your original) -->
+
+    <!-- Checkout Section (Offline Payment) -->
+    <section class="checkout" style="padding: 100px 0;">
+        <div class="container">
+            <h2 class="section-title">Complete Your Purchase</h2>
+            <div class="checkout-content">
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-item">
+                        <div class="summary-details">
+                            <h4 id="plan-name">Gold Plan - All Groups</h4>
+                            <p>Unlimited Tests + Tournament Access</p>
+                        </div>
+                        <div class="summary-price">
+                            <span id="plan-price">₹8000</span>
+                            <span class="original-price">₹10000 (20% Off)</span>
+                        </div>
+                    </div>
+                    <div class="summary-total">
+                        <div class="total-line grand-total">
+                            <span>Total:</span>
+                            <span id="total">₹8000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="payment-details">
+                    <h3>Offline Payment</h3>
+                    <p>Pay via UPI & Send Screenshot to WhatsApp: <strong>8949656466</strong></p>
+                    <div class="row text-center mb-3">
+                        <div class="col-4"><i class="fas fa-mobile-alt fa-2x text-success"></i><br>PhonePe</div>
+                        <div class="col-4"><i class="fas fa-mobile-alt fa-2x text-warning"></i><br>Paytm</div>
+                        <div class="col-4"><i class="fas fa-mobile-alt fa-2x text-danger"></i><br>GPay</div>
+                    </div>
+                    <p>UPI ID: yourupi@oksbi | Amount: <span id="planAmount">₹8000</span></p>
+                    <form id="payment-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large">Confirm Payment (Screenshot Sent)</button>
+                    </form>
+                    <div class="security-note">
+                        <p><i class="fas fa-lock"></i> Access after verification (1 hour)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Your original) -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const SHEET_URL = 'https://script.google.com/macros/s/YOUR_APPS_SCRIPT_URL/exec';
+            const urlParams = new URLSearchParams(window.location.search);
+            const plan = urlParams.get('plan') || 'Gold';
+            const amount = urlParams.get('amount') || '8000';
+            document.getElementById('plan-name').textContent = `${plan} Plan`;
+            document.getElementById('plan-price').textContent = `₹${amount}`;
+            document.getElementById('total').textContent = `₹${amount}`;
+            document.getElementById('planAmount').textContent = amount;
+
+            // Payment Submit - Log to Sheet + Redirect
+            const paymentForm = document.getElementById('payment-form');
+            paymentForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                try {
+                    await fetch(SHEET_URL, {
+                        method: 'POST',
+                        body: new URLSearchParams({ name, email, phone, plan, amount, type: 'Payment' })
+                    });
+                    alert('Details Logged! Send Screenshot to WhatsApp 8949656466. Redirecting to Thank You...');
+                    window.location.href = 'thankyou.html?plan=' + plan + '&amount=' + amount;
+                } catch (err) { alert('Error - Try again'); }
+            });
+        });
+    </script>
+</body>
+</html>

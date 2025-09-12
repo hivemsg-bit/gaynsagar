@@ -3,7 +3,7 @@
 // Replace the URL below with your actual deployed Google Apps Script web app URL
 // Example: 'https://script.google.com/macros/s/YOUR-DEPLOYED-ID-HERE/exec'
 //
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxm2yhSbYtwudph3Ba_nxCfT35PV9t1E1txYdPu8ljNeEFRzt0PBdpra5Td2hULakU-Hg/exec'; // ← PASTE YOUR REAL URL HERE!
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5ujTT0jCARKqCxyLDytbp0zirNSvMJ5dCP0_h88Ff1qL76Us8sSYnbmooNRNviekZWA/exec'; // ← PASTE YOUR REAL URL HERE!
 
 // DOM Ready
 document.addEventListener('DOMContentLoaded', function() {

@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CA Test Series - Best Online Mock Tests for CA Foundation, Intermediate & Final</title>
+    <title>CA Test Series - Best Online Mock Tests for CA Exams</title>
     <meta name="description" content="Fair CA Test Series with 20% discount. Free mocks, old papers, tournament, updates.">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation (caexams.in style: Clean blue) -->
+    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="images/logo.png" alt="CA Test Series" class="logo" onerror="this.src='https://via.placeholder.com/150x40?text=CA+Test+Series'"> <!-- Fallback -->
+                <img src="images/logo.png" alt="CA Test Series" class="logo" onerror="this.src='https://via.placeholder.com/150x40?text=CA+Test+Series'">
             </div>
             <div class="nav-menu" id="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
@@ -35,13 +35,15 @@
     </nav>
 
     <!-- Hero with Flash Banner (Point 3) -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Ace Your CA Exams</h1>
-            <p class="hero-subtitle">Fair Test Series with 20% Discount | Upcoming May 2024 Series - Register Now!</p>
-            <div class="hero-buttons">
-                <a href="#pricing" class="btn btn-primary">Browse Plans</a>
-                <a href="#free-tests" class="btn btn-outline">Try Free</a>
+    <section id="home" class="hero-banner">
+        <div class="container">
+            <h1>Welcome to CA Test Series</h1>
+            <p>Fair, Affordable Mocks for All Groups | Upcoming May 2024 Series - 20% Off!</p>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h3>Silver: ₹2400 (20% Off)</h3>
+                    <a href="#pricing" class="btn btn-light">Register</a>
+                </div>
             </div>
         </div>
     </section>
@@ -49,48 +51,97 @@
     <!-- Updates Section (Point 5) -->
     <section id="updates" class="section">
         <div class="container">
-            <h2 class="section-title">Latest CA Updates</h2>
+            <h2 class="section-title">Latest CA Updates & Amendments</h2>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="card">
+                    <div class="updates card">
                         <h5>Income Tax Amendment 2024</h5>
                         <a href="https://drive.google.com/file/d/YOUR_AMENDMENT_ID/view" class="btn btn-primary btn-sm">Download PDF</a>
                     </div>
                 </div>
-                <!-- Add 2 more similar cards -->
+                <div class="col-md-4">
+                    <div class="updates card">
+                        <h5>ICAI Exam Schedule Update</h5>
+                        <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="updates card">
+                        <h5>Syllabus Changes - Final Group</h5>
+                        <a href="https://drive.google.com/file/d/YOUR_SYLLABUS_ID/view" class="btn btn-primary btn-sm">View Details</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Test Series Section (Point 4 Partial) -->
+    <!-- Test Series Section -->
     <section id="test-series" class="services">
-        <!-- Your existing services-grid here -->
+        <div class="container">
+            <h2 class="section-title">Our CA Test Series</h2>
+            <p class="section-subtitle">Designed for Fair Practice</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-layer-group service-icon"></i>
+                    <h3>CA Foundation</h3>
+                    <p>20+ Tests, Objective & Subjective</p>
+                    <a href="#pricing" class="btn btn-primary">View Plans</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-line service-icon"></i>
+                    <h3>CA Intermediate</h3>
+                    <p>Topic-Wise Mocks, Analytics</p>
+                    <a href="#pricing" class="btn btn-primary">View Plans</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-trophy service-icon"></i>
+                    <h3>CA Final</h3>
+                    <p>Advanced Papers, Video Solutions</p>
+                    <a href="#pricing" class="btn btn-primary">View Plans</a>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Free Tests (Point 2) -->
     <section id="free-tests" class="free-tests">
-        <!-- Your existing test-cards -->
-        <!-- Add after: Subjective PDF log via form -->
+        <div class="container">
+            <h2 class="section-title">Free Test Series</h2>
+            <p class="section-subtitle">1 Free Objective + Subjective PDF (No Verification)</p>
+            <div class="test-cards">
+                <div class="test-card">
+                    <div class="test-card-header">
+                        <h3>Foundation Free Test</h3>
+                    </div>
+                    <div class="test-card-body">
+                        <p>Objective MCQs + PDF Download</p>
+                        <button class="btn btn-primary start-test-btn" data-level="foundation">Start Free</button>
+                    </div>
+                </div>
+                <!-- Add similar for Intermediate & Final -->
+            </div>
+        </div>
     </section>
 
-    <!-- Resources Section (Point 4) -->
+    <!-- Resources Section (Point 4 & 7) -->
     <section id="resources" class="section">
         <div class="container">
             <h2 class="section-title">Study Materials & Old Papers</h2>
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <h5>Old Question Papers (Year-Wise)</h5>
+                        <h5>Old Question Papers</h5>
                         <ul>
                             <li><a href="https://drive.google.com/file/d/YOUR_2023_ID/view">2023 Foundation</a></li>
                             <li><a href="https://drive.google.com/file/d/YOUR_2022_ID/view">2022 Intermediate</a></li>
+                            <li><a href="https://drive.google.com/file/d/YOUR_2021_ID/view">2021 Final</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <h5>Mock Tests PDFs</h5>
-                        <button class="btn btn-primary" onclick="downloadMocks()">Download (Paid)</button>
+                        <h5>Mock Tests</h5>
+                        <button class="btn btn-primary" onclick="downloadSeries('mocks')">Download PDFs (Paid/Free Limited)</button>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -103,30 +154,87 @@
         </div>
     </section>
 
-    <!-- Tournament Banner (Point 6) -->
+    <!-- Tournament (Point 6) -->
     <section id="tournament" class="tournament-banner">
         <div class="container">
             <h3>CA Grand Tournament</h3>
-            <p>Prizes ₹10k-₹25k | Gold Auto-Entry | Click for Details</p>
-            <button class="btn btn-primary" onclick="openTournamentModal()">Join</button>
+            <p>Prizes ₹10,000 - ₹25,000 | 3-Hour Online | Gold Auto-Entry</p>
+            <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#tournamentModal">Details</button>
         </div>
     </section>
 
-    <!-- Pricing (Point 1: 20% Off) -->
+    <!-- Pricing (Point 1) -->
     <section id="pricing" class="pricing">
-        <!-- Updated pricing-grid as in my previous snippet -->
+        <div class="container">
+            <h2 class="section-title">Pricing Plans (20% Discount)</h2>
+            <p class="section-subtitle">Competitive vs Others (e.g., caexams.in ₹500-8000)</p>
+            <div class="pricing-tabs">
+                <button class="pricing-tab active" data-target="all">All Groups Bundle</button>
+                <!-- Add tabs for Foundation etc. -->
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Free Plan</h3>
+                    <div class="price">₹0</div>
+                    <ul><li>1 Test Series</li><li>PDF Download</li></ul>
+                    <button class="btn btn-outline" onclick="startFree()">Start Free</button>
+                </div>
+                <div class="pricing-card highlight">
+                    <div class="badge">20% Off</div>
+                    <h3>Silver Plan</h3>
+                    <div class="price">₹2400 <span class="original">₹3000</span></div>
+                    <ul><li>10 Tests/Group</li><li>Materials</li></ul>
+                    <a href="checkout.html?plan=silver&amount=2400" class="btn btn-primary">Buy Now</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Gold Plan (All)</h3>
+                    <div class="price">₹8000 <span class="original">₹10000</span></div>
+                    <ul><li>Unlimited</li><li>Tournament</li></ul>
+                    <a href="checkout.html?plan=gold&amount=8000" class="btn btn-primary">Buy Now</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Platinum Plan</h3>
+                    <div class="price">₹12000 <span class="original">₹15000</span></div>
+                    <ul><li>Analytics</li><li>Videos</li></ul>
+                    <a href="checkout.html?plan=platinum&amount=12000" class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Testimonials & CTA (Your existing) -->
+    <!-- Testimonials (Your existing code here) -->
+
+    <!-- CTA (Your existing) -->
 
     <!-- Footer (Your existing) -->
 
-    <!-- Modals: Payment (Point 9), Tournament (Point 6), Login (existing) -->
-    <!-- Payment Modal Code as in previous snippet -->
+    <!-- Tournament Modal (Point 6) -->
+    <div class="modal fade" id="tournamentModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>CA Tournament Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>3-Hour Exam | Prizes up to ₹25k | Gold Auto | Others ₹500/Paper</p>
+                    <a href="checkout.html?plan=tournament&amount=2000" class="btn btn-primary">Join</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- AI Chat (Point 10) -->
-    <!-- Chat HTML/JS as in previous snippet -->
+    <div id="chatBox" class="chat-box">
+        <div class="chat-header">
+            CA AI Assistant <button onclick="closeChat()" style="float:right;">×</button>
+        </div>
+        <div class="chat-body" id="chatMessages">Hi! Ask doubts.</div>
+        <input type="text" id="chatInput" placeholder="Type..." onkeypress="if(event.key==='Enter') sendMessage();">
+    </div>
+    <button onclick="openChat()" id="chatToggle" style="position:fixed;bottom:20px;right:20px;background:#0a5fc5;color:white;border:none;border-radius:50%;width:50px;height:50px;"> <i class="fas fa-comments"></i> </button>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

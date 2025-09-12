@@ -3,49 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You - CA Test Series</title>
+    <title>Thank You - caexam</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .thankyou {
+            text-align: center;
+            padding: 100px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .thankyou-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .checkmark {
+            font-size: 5rem;
+            color: var(--success-color);
+            margin-bottom: 2rem;
+        }
+        
+        .thankyou-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .downloads-section {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+            text-align: left;
+        }
+        
+        .download-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .download-item:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation (Your original) -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/logo.png" alt="caexam" class="logo">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#test-series" class="nav-link">Test Series</a>
+            </div>
+            <div class="nav-actions">
+                <a href="student-dashboard.html" class="btn btn-outline">My Dashboard</a>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Thank You Section -->
-    <section class="thankyou" style="padding: 100px 0; text-align: center;">
+    <section class="thankyou">
         <div class="container">
             <div class="thankyou-content">
-                <i class="fas fa-check-circle checkmark" style="font-size: 5rem; color: #28a745;"></i>
+                <div class="checkmark">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                
                 <h1>Thank You for Your Purchase!</h1>
-                <p>Your payment details are confirmed. Access unlocked after WhatsApp verification.</p>
+                
+                <p>Your payment has been successfully processed. You now have access to your selected test series.</p>
+                
                 <div class="order-details">
-                    <h3>Order Summary</h3>
-                    <p id="thank-plan"></p>
-                    <p id="thank-amount"></p>
-                    <p>Order ID: <span id="order-id">CATS-2024-001</span></p>
+                    <h3>Order Details</h3>
+                    <p><strong>Plan:</strong> Gold Pack - CA Foundation</p>
+                    <p><strong>Amount Paid:</strong> ₹999</p>
                 </div>
-                <div class="downloads-section card" style="margin-top: 30px;">
-                    <h3>Download Your Materials</h3>
-                    <div class="download-item">
-                        <h4>Test Series PDFs</h4>
-                        <a href="https://drive.google.com/file/d/YOUR_SERIES_ID/view" class="btn btn-primary">Download</a>
-                    </div>
-                    <!-- Add more -->
+                
+                <div class="downloads-section">
+                    <h3>Access Your Study Materials</h3>
+                    <p>Download your purchased test series papers from your dashboard.</p>
                 </div>
+                
                 <div class="thankyou-buttons">
-                    <a href="student-dashboard.html" class="btn btn-primary">Dashboard</a>
-                    <a href="index.html" class="btn btn-outline">Home</a>
+                    <a href="student-dashboard.html" class="btn btn-primary">
+                        <i class="fas fa-tachometer-alt"></i> Go to Dashboard
+                    </a>
+                    <a href="index.html" class="btn btn-outline">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer (Your original) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="caexam" class="logo">
+                        <p>India's leading CA Test Series platform.</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#test-series">Test Series</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> CA Excellence Center New Delhi 110001</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@caexam.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 caexam. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        document.getElementById('thank-plan').innerHTML = `<strong>Plan:</strong> ${urlParams.get('plan') || 'Gold'}`;
-        document.getElementById('thank-amount').innerHTML = `<strong>Amount:</strong> ₹${urlParams.get('amount') || '8000'}`;
-    </script>
 </body>
 </html>

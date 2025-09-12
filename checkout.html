@@ -3,99 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - CA Test Series</title>
+    <title>Checkout - caexam</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .checkout-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+        .order-summary, .payment-details {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .offline-payment-instructions {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+        }
+        .offline-payment-instructions h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .offline-payment-instructions p {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        .qr-code-container {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .qr-code-container img {
+            max-width: 200px;
+            border: 1px solid var(--border-color);
+            padding: 5px;
+            border-radius: 4px;
+        }
+        @media (max-width: 768px) {
+            .checkout-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation (Your original) -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/logo.png" alt="caexam" class="logo">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#pricing" class="nav-link">Pricing</a>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-outline">Back to Home</a>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Checkout Section (Offline Payment) -->
     <section class="checkout" style="padding: 100px 0;">
         <div class="container">
             <h2 class="section-title">Complete Your Purchase</h2>
+            
             <div class="checkout-content">
                 <div class="order-summary">
                     <h3>Order Summary</h3>
-                    <div class="summary-item">
+                    
+                    <div class="summary-item" style="padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color);">
                         <div class="summary-details">
-                            <h4 id="plan-name">Gold Plan - All Groups</h4>
-                            <p>Unlimited Tests + Tournament Access</p>
+                            <h4 id="plan-name">Silver Pack - CA Foundation</h4>
                         </div>
                         <div class="summary-price">
-                            <span id="plan-price">₹8000</span>
-                            <span class="original-price">₹10000 (20% Off)</span>
+                            <span id="plan-price">₹199</span>
                         </div>
                     </div>
-                    <div class="summary-total">
+                    
+                    <div class="summary-total" style="margin-top: 1.5rem;">
                         <div class="total-line grand-total">
-                            <span>Total:</span>
-                            <span id="total">₹8000</span>
+                            <span>Total Amount to Pay:</span>
+                            <span id="total">₹199</span>
                         </div>
                     </div>
                 </div>
+                
                 <div class="payment-details">
-                    <h3>Offline Payment</h3>
-                    <p>Pay via UPI & Send Screenshot to WhatsApp: <strong>8949656466</strong></p>
-                    <div class="row text-center mb-3">
-                        <div class="col-4"><i class="fas fa-mobile-alt fa-2x text-success"></i><br>PhonePe</div>
-                        <div class="col-4"><i class="fas fa-mobile-alt fa-2x text-warning"></i><br>Paytm</div>
-                        <div class="col-4"><i class="fas fa-mobile-alt fa-2x text-danger"></i><br>GPay</div>
-                    </div>
-                    <p>UPI ID: yourupi@oksbi | Amount: <span id="planAmount">₹8000</span></p>
-                    <form id="payment-form">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" required>
+                    <h3>Offline Payment Instructions</h3>
+                    
+                    <div class="offline-payment-instructions">
+                        <h4><i class="fas fa-wallet"></i> How to Pay</h4>
+                        <p>You can pay via PhonePe, Paytm, GPay, or any other UPI app.</p>
+                        
+                        <div class="qr-code-container">
+                             <p><strong>Scan the QR Code to Pay</strong></p>
+                            <img src="YOUR_QR_CODE_IMAGE.png" alt="Payment QR Code">
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-large">Confirm Payment (Screenshot Sent)</button>
-                    </form>
-                    <div class="security-note">
-                        <p><i class="fas fa-lock"></i> Access after verification (1 hour)</p>
+
+                        <p style="margin-top: 1.5rem;"><strong>UPI ID:</strong> pjangir@sbi</p>
+                        
+                        <h4><i class="fab fa-whatsapp"></i> After Payment</h4>
+                        <p>Once the payment is complete, please send a screenshot of the payment to our WhatsApp number:</p>
+                        <p><strong>WhatsApp:</strong> 8949656466</p>
+                        <p>Your plan will be activated within 24 hours of receiving the screenshot.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer (Your original) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2023 caexam. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const SHEET_URL = 'https://script.google.com/macros/s/YOUR_APPS_SCRIPT_URL/exec';
+            // Get plan details from URL parameters
             const urlParams = new URLSearchParams(window.location.search);
-            const plan = urlParams.get('plan') || 'Gold';
-            const amount = urlParams.get('amount') || '8000';
-            document.getElementById('plan-name').textContent = `${plan} Plan`;
-            document.getElementById('plan-price').textContent = `₹${amount}`;
-            document.getElementById('total').textContent = `₹${amount}`;
-            document.getElementById('planAmount').textContent = amount;
-
-            // Payment Submit - Log to Sheet + Redirect
-            const paymentForm = document.getElementById('payment-form');
-            paymentForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const phone = document.getElementById('phone').value;
-                try {
-                    await fetch(SHEET_URL, {
-                        method: 'POST',
-                        body: new URLSearchParams({ name, email, phone, plan, amount, type: 'Payment' })
-                    });
-                    alert('Details Logged! Send Screenshot to WhatsApp 8949656466. Redirecting to Thank You...');
-                    window.location.href = 'thankyou.html?plan=' + plan + '&amount=' + amount;
-                } catch (err) { alert('Error - Try again'); }
-            });
+            const plan = urlParams.get('plan');
+            const level = urlParams.get('level');
+            
+            const planNameEl = document.getElementById('plan-name');
+            const planPriceEl = document.getElementById('plan-price');
+            const totalEl = document.getElementById('total');
+            
+            let price = 199;
+            let planTitle = 'Silver Pack';
+            
+            if (plan === 'gold') {
+                price = 999;
+                planTitle = 'Gold Pack';
+            }
+            
+            planNameEl.textContent = `${planTitle} - CA ${capitalizeFirstLetter(level || 'Foundation')}`;
+            planPriceEl.textContent = `₹${price}`;
+            totalEl.textContent = `₹${price}`;
+            
+            function capitalizeFirstLetter(string) {
+                return string.charAt(0).toUpperCase() + string.slice(1);
+            }
         });
     </script>
 </body>

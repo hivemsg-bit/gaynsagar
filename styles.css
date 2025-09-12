@@ -1,0 +1,20 @@
+/* Your existing :root + updates */
+:root {
+    --primary-color: #0a5fc5; /* caexams.in blue */
+    --secondary-color: #f8f9fa; /* Light gray */
+    /* Remove orange gradients for minimalism */
+}
+
+/* Hero: Solid blue bg instead of image/gradient */
+.hero { background-color: #0a5fc5; color: white; }
+
+/* Cards: Subtle shadows */
+.card { box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #dee2e6; }
+
+/* Tournament Banner */
+.tournament-banner { background: #0a5fc5; color: white; padding: 30px; text-align: center; }
+
+/* Chat Box */
+.chat-box { /* As previous, fixed position */ }
+
+/* Other existing styles... */

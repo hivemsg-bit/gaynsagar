@@ -3,238 +3,533 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CA Test Series - Best Online Mock Tests for CA Exams</title>
-    <meta name="description" content="Fair CA Test Series with 20% discount. Free mocks, old papers, tournament, updates.">
+    <title>caexam - India's Best CA Test Series | CA Foundation, Intermediate & Final</title>
+    <meta name="description" content="India's best CA test series for Foundation, Intermediate & Final exams. Get exam-pattern mock tests, detailed solutions, performance analytics and All India Ranking.">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="images/logo.png" alt="CA Test Series" class="logo" onerror="this.src='https://via.placeholder.com/150x40?text=CA+Test+Series'">
+                <img src="images/logo.png" alt="caexam - Best CA Test Series" class="logo">
             </div>
             <div class="nav-menu" id="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#test-series" class="nav-link">Test Series</a>
                 <a href="#pricing" class="nav-link">Pricing</a>
                 <a href="#free-tests" class="nav-link">Free Tests</a>
-                <a href="#resources" class="nav-link">Resources</a>
-                <a href="#tournament" class="nav-link">Tournament</a>
-                <a href="#updates" class="nav-link">Updates</a>
+                <a href="#results" class="nav-link">Results</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </div>
             <div class="nav-actions">
-                <button class="login-btn" id="loginBtn">Login</button>
+                <div class="language-switcher">
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                </div>
+                <button class="login-btn" id="loginBtn">Login | Register</button>
                 <div class="hamburger" id="hamburger">
-                    <span></span><span></span><span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero with Flash Banner (Point 3) -->
-    <section id="home" class="hero-banner">
-        <div class="container">
-            <h1>Welcome to CA Test Series</h1>
-            <p>Fair, Affordable Mocks for All Groups | Upcoming May 2024 Series - 20% Off!</p>
-            <div class="row mt-4">
-                <div class="col-md-6">
-                    <h3>Silver: ₹2400 (20% Off)</h3>
-                    <a href="#pricing" class="btn btn-light">Register</a>
-                </div>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title" data-en="Ace Your CA Exams with India's Best Test Series" data-hi="भारत की सर्वश्रेष्ठ टेस्ट सीरीज के साथ अपनी CA परीक्षाओं में टॉप करें">Ace Your CA Exams with India's Best Test Series</h1>
+            <p class="hero-subtitle" data-en="Get access to high-quality, exam-pattern mock tests for CA Foundation, Intermediate, and Final. Detailed performance analysis, video solutions, and All India Rank included. Join 25,000+ successful CA students who achieved their goals with our test series." data-hi="CA Foundation, Intermediate और Final के लिए उच्च-गुणवत्ता, परीक्षा-पैटर्न मॉक टेस्ट तक पहुँचें। विस्तृत प्रदर्शन विश्लेषण, वीडियो समाधान और ऑल इंडिया रैंक शामिल। 25,000+ सफल CA छात्रों में शामिल हों जिन्होंने हमारी टेस्ट सीरीज के साथ अपने लक्ष्यों को प्राप्त किया।">Get access to high-quality, exam-pattern mock tests for CA Foundation, Intermediate, and Final. Detailed performance analysis, video solutions, and All India Rank included. Join 25,000+ successful CA students who achieved their goals with our test series.</p>
+            <div class="hero-buttons">
+                <a href="#pricing" class="btn btn-primary" data-en="Browse Test Series" data-hi="टेस्ट सीरीज देखें">Browse Test Series</a>
+                <a href="#free-tests" class="btn btn-outline" data-en="Try Free Test" data-hi="फ्री टेस्ट आज़माएं">Try Free Test</a>
             </div>
         </div>
     </section>
 
-    <!-- Updates Section (Point 5) -->
-    <section id="updates" class="section">
-        <div class="container">
-            <h2 class="section-title">Latest CA Updates & Amendments</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="updates card">
-                        <h5>Income Tax Amendment 2024</h5>
-                        <a href="https://drive.google.com/file/d/YOUR_AMENDMENT_ID/view" class="btn btn-primary btn-sm">Download PDF</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="updates card">
-                        <h5>ICAI Exam Schedule Update</h5>
-                        <a href="#" class="btn btn-primary btn-sm">Read More</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="updates card">
-                        <h5>Syllabus Changes - Final Group</h5>
-                        <a href="https://drive.google.com/file/d/YOUR_SYLLABUS_ID/view" class="btn btn-primary btn-sm">View Details</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Test Series Section -->
     <section id="test-series" class="services">
         <div class="container">
-            <h2 class="section-title">Our CA Test Series</h2>
-            <p class="section-subtitle">Designed for Fair Practice</p>
+            <h2 class="section-title" data-en="Our Comprehensive CA Test Series" data-hi="हमारी व्यापक CA टेस्ट सीरीज">Our Comprehensive CA Test Series</h2>
+            <p class="section-subtitle" data-en="Designed by experienced CAs to match the latest ICAI exam pattern and difficulty level. Get the perfect practice for your CA Foundation, CA Intermediate, and CA Final exams." data-hi="अनुभवी CAs द्वारा नवीनतम ICAI परीक्षा पैटर्न और कठिनाई स्तर से मेल खाने के लिए डिज़ाइन किया गया। अपनी CA Foundation, CA Intermediate और CA Final परीक्षाओं के लिए सही अभ्यास प्राप्त करें।">Designed by experienced CAs to match the latest ICAI exam pattern and difficulty level. Get the perfect practice for your CA Foundation, CA Intermediate, and CA Final exams.</p>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-layer-group service-icon"></i>
-                    <h3>CA Foundation</h3>
-                    <p>20+ Tests, Objective & Subjective</p>
-                    <a href="#pricing" class="btn btn-primary">View Plans</a>
+                    <div class="service-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 data-en="CA Foundation Test Series" data-hi="CA Foundation टेस्ट सीरीज">CA Foundation Test Series</h3>
+                    <p data-en="Complete test series for CA Foundation covering all subjects. 20+ full-length tests based on the latest pattern. Perfect for first-time aspirants to build strong fundamentals and exam temperament." data-hi="सभी विषयों को कवर करने वाली CA Foundation के लिए संपूर्ण टेस्ट सीरीज। नवीनतम पैटर्न पर आधारित 20+ फुल-लेंथ टेस्ट। मजबूत बुनियादी बातों और परीक्षा की मनोदशा को बनाने के लिए पहली बार उम्मीदवारों के लिए बिल्कुल सही।">Complete test series for CA Foundation covering all subjects. 20+ full-length tests based on the latest pattern. Perfect for first-time aspirants to build strong fundamentals and exam temperament.</p>
+                    <a href="#pricing" class="btn btn-primary" data-en="View Plans" data-hi="प्लान देखें">View Plans</a>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-chart-line service-icon"></i>
-                    <h3>CA Intermediate</h3>
-                    <p>Topic-Wise Mocks, Analytics</p>
-                    <a href="#pricing" class="btn btn-primary">View Plans</a>
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 data-en="CA Intermediate Test Series" data-hi="CA Intermediate टेस्ट सीरीज">CA Intermediate Test Series</h3>
+                    <p data-en="Advanced test series for both groups of CA Intermediate. Topic-wise tests, mock exams, and revision packs. Designed to help you master complex concepts and improve your problem-solving speed." data-hi="CA Intermediate के दोनों समूहों के लिए उन्नत टेस्ट सीरीज। टॉपिक-वाइज टेस्ट, मॉक एग्जाम और रिवीजन पैक। जटिल अवधारणाओं में महारत हासिल करने और आपकी समस्या-समाधान गति में सुधार करने में मदद करने के लिए डिज़ाइन किया गया।">Advanced test series for both groups of CA Intermediate. Topic-wise tests, mock exams, and revision packs. Designed to help you master complex concepts and improve your problem-solving speed.</p>
+                    <a href="#pricing" class="btn btn-primary" data-en="View Plans" data-hi="प्लान देखें">View Plans</a>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-trophy service-icon"></i>
-                    <h3>CA Final</h3>
-                    <p>Advanced Papers, Video Solutions</p>
-                    <a href="#pricing" class="btn btn-primary">View Plans</a>
+                    <div class="service-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 data-en="CA Final Test Series" data-hi="CA Final टेस्ट सीरीज">CA Final Test Series</h3>
+                    <p data-en="Expert-curated tests for the final level CA exams. Includes paper-specific mock tests and previous year paper analysis. The ultimate preparation tool to ensure you're ready for the final challenge." data-hi="फाइनल लेवल CA परीक्षाओं के लिए विशेषज्ञों द्वारा तैयार टेस्ट। पेपर-विशिष्ट मॉक टेस्ट और पिछले वर्षों के पेपर विश्लेषण शामिल। यह सुनिश्चित करने के लिए अंतिम तैयारी उपकरण कि आप अंतिम चुनौती के लिए तैयार हैं।">Expert-curated tests for the final level CA exams. Includes paper-specific mock tests and previous year paper analysis. The ultimate preparation tool to ensure you're ready for the final challenge.</p>
+                    <a href="#pricing" class="btn btn-primary" data-en="View Plans" data-hi="प्लान देखें">View Plans</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Free Tests (Point 2) -->
     <section id="free-tests" class="free-tests">
         <div class="container">
-            <h2 class="section-title">Free Test Series</h2>
-            <p class="section-subtitle">1 Free Objective + Subjective PDF (No Verification)</p>
+            <h2 class="section-title" data-en="Try Our Free CA Test Series" data-hi="हमारी निःशुल्क CA टेस्ट सीरीज आज़माएं">Try Our Free CA Test Series</h2>
+            <p class="section-subtitle" data-en="Experience our platform quality with free objective-type tests. Each test contains 25 questions with instant results and detailed solutions." data-hi="निःशुल्क ऑब्जेक्टिव-टाइप टेस्ट के साथ हमारे प्लेटफ़ॉर्म की गुणवत्ता का अनुभव करें। प्रत्येक टेस्ट में त्वरित परिणाम और विस्तृत समाधान के साथ 25 प्रश्न होते हैं।">Experience our platform quality with free objective-type tests. Each test contains 25 questions with instant results and detailed solutions.</p>
+
             <div class="test-cards">
                 <div class="test-card">
                     <div class="test-card-header">
-                        <h3>Foundation Free Test</h3>
+                        <h3 data-en="CA Foundation Free Test" data-hi="CA Foundation निःशुल्क टेस्ट">CA Foundation Free Test</h3>
                     </div>
                     <div class="test-card-body">
-                        <p>Objective MCQs + PDF Download</p>
-                        <button class="btn btn-primary start-test-btn" data-level="foundation">Start Free</button>
-                    </div>
-                </div>
-                <!-- Add similar for Intermediate & Final -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Resources Section (Point 4 & 7) -->
-    <section id="resources" class="section">
-        <div class="container">
-            <h2 class="section-title">Study Materials & Old Papers</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <h5>Old Question Papers</h5>
+                        <p data-en="Free 30-min Practice Test" data-hi="निःशुल्क 30-मिनट का अभ्यास टेस्ट">Free 30-min Practice Test</p>
                         <ul>
-                            <li><a href="https://drive.google.com/file/d/YOUR_2023_ID/view">2023 Foundation</a></li>
-                            <li><a href="https://drive.google.com/file/d/YOUR_2022_ID/view">2022 Intermediate</a></li>
-                            <li><a href="https://drive.google.com/file/d/YOUR_2021_ID/view">2021 Final</a></li>
+                            <li data-en="25 MCQs" data-hi="25 MCQs">25 MCQs</li>
+                            <li data-en="Subject: Principles & Practice of Accounting" data-hi="विषय: लेखांकन के सिद्धांत और अभ्यास">Subject: Principles & Practice of Accounting</li>
+                            <li data-en="Instant Score & Solutions" data-hi="तुरंत स्कोर और समाधान">Instant Score & Solutions</li>
                         </ul>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <h5>Mock Tests</h5>
-                        <button class="btn btn-primary" onclick="downloadSeries('mocks')">Download PDFs (Paid/Free Limited)</button>
+                    <div class="test-card-footer">
+                        <button class="btn btn-primary open-free-test-modal" data-en="Start Free Test" data-hi="फ्री टेस्ट शुरू करें">Start Free Test</button>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <h5>Revision Notes</h5>
-                        <a href="https://drive.google.com/file/d/YOUR_NOTES_ID/view" class="btn btn-primary">Free Download</a>
+
+                <div class="test-card">
+                    <div class="test-card-header">
+                        <h3 data-en="CA Intermediate Free Test" data-hi="CA Intermediate निःशुल्क टेस्ट">CA Intermediate Free Test</h3>
                     </div>
+                    <div class="test-card-body">
+                        <p data-en="Free 45-min Practice Test" data-hi="निःशुल्क 45-मिनट का अभ्यास टेस्ट">Free 45-min Practice Test</p>
+                        <ul>
+                            <li data-en="25 MCQs & Case Studies" data-hi="25 MCQs और केस स्टडी">25 MCQs & Case Studies</li>
+                            <li data-en="Subject: Taxation" data-hi="विषय: कराधान">Subject: Taxation</li>
+                            <li data-en="Detailed Answer Key" data-hi="विस्तृत उत्तर कुंजी">Detailed Answer Key</li>
+                        </ul>
+                    </div>
+                    <div class="test-card-footer">
+                        <button class="btn btn-primary open-free-test-modal" data-en="Start Free Test" data-hi="फ्री टेस्ट शुरू करें">Start Free Test</button>
+                    </div>
+                </div>
+
+                <div class="test-card">
+                    <div class="test-card-header">
+                        <h3 data-en="CA Final Free Test" data-hi="CA Final निःशुल्क टेस्ट">CA Final Free Test</h3>
+                    </div>
+                    <div class="test-card-body">
+                        <p data-en="Free 60-min Practice Test" data-hi="निःशुल्क 60-मिनट का अभ्यास टेस्ट">Free 60-min Practice Test</p>
+                        <ul>
+                            <li data-en="25 Complex MCQs" data-hi="25 जटिल MCQs">25 Complex MCQs</li>
+                            <li data-en="Subject: Strategic Financial Management" data-hi="विषय: रणनीतिक वित्तीय प्रबंधन">Subject: Strategic Financial Management</li>
+                            <li data-en="Advanced Performance Analytics" data-hi="उन्नत प्रदर्शन विश्लेषण">Advanced Performance Analytics</li>
+                        </ul>
+                    </div>
+                    <div class="test-card-footer">
+                        <button class="btn btn-primary open-free-test-modal" data-en="Start Free Test" data-hi="फ्री टेस्ट शुरू करें">Start Free Test</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coupon-banner-horizontal">
+                <div class="coupon-content">
+                    <span class="coupon-icon"><i class="fas fa-gift"></i></span>
+                    <div class="coupon-text">
+                        <h4 data-en="Special Limited Time Offer!" data-hi="विशेष सीमित समय ऑफर!">Special Limited Time Offer!</h4>
+                        <p data-en="Use code " data-hi="कोड का उपयोग करें">Use code <strong class="coupon-code">SAVE100</strong> <span data-en="to get ₹100 off on any paid plan." data-hi="किसी भी पेड प्लान पर ₹100 की छूट पाने के लिए।">to get ₹100 off on any paid plan.</span></p>
+                    </div>
+                    <button class="btn btn-outline copy-coupon-btn" id="horizontalCouponBtn" data-en="Copy Code" data-hi="कोड कॉपी करें">Copy Code</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tournament (Point 6) -->
-    <section id="tournament" class="tournament-banner">
+    <section id="features" class="features">
         <div class="container">
-            <h3>CA Grand Tournament</h3>
-            <p>Prizes ₹10,000 - ₹25,000 | 3-Hour Online | Gold Auto-Entry</p>
-            <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#tournamentModal">Details</button>
+            <h2 class="section-title" data-en="Why Choose Our CA Test Series?" data-hi="हमारी CA टेस्ट सीरीज क्यों चुनें?">Why Choose Our CA Test Series?</h2>
+            <p class="section-subtitle" data-en="Our comprehensive approach to CA exam preparation sets us apart from other test series providers." data-hi="CA परीक्षा की तैयारी के लिए हमारा व्यापक दृष्टिकोण हमें अन्य टेस्ट सीरीज प्रदाताओं से अलग करता है।">Our comprehensive approach to CA exam preparation sets us apart from other test series providers.</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 data-en="Exam-Pattern Tests" data-hi="एग्जाम-पैटर्न टेस्ट">Exam-Pattern Tests</h3>
+                    <p data-en="Tests are designed by experienced CAs based on the latest ICAI pattern, difficulty level, and marking scheme. Our questions match the standard and complexity of actual CA exams." data-hi="टेस्ट अनुभवी CAs द्वारा नवीनतम ICAI पैटर्न, कठिनाई स्तर और मार्किंग स्कीम के आधार पर डिज़ाइन किए गए हैं। हमारे प्रश्न वास्तविक CA परीक्षाओं के मानक और जटिलता से मेल खाते हैं।">Tests are designed by experienced CAs based on the latest ICAI pattern, difficulty level, and marking scheme. Our questions match the standard and complexity of actual CA exams.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <h3 data-en="Detailed Solutions" data-hi="विस्तृत समाधान">Detailed Solutions</h3>
+                    <p data-en="Get detailed, step-by-step solutions for every question to understand your mistakes. Our solutions include expert tips, alternative approaches, and common pitfalls to avoid." data-hi="हर प्रश्न के लिए विस्तृत, चरण-दर-चरण समाधान प्राप्त करें ताकि आप अपनी गलतियों को समझ सकें। हमारे समाधानों में विशेषज्ञ युक्तियाँ, वैकल्पिक दृष्टिकोण और avoid करने के लिए common pitfalls शामिल हैं।">Get detailed, step-by-step solutions for every question to understand your mistakes. Our solutions include expert tips, alternative approaches, and common pitfalls to avoid.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 data-en="Performance Analytics" data-hi="प्रदर्शन विश्लेषण">Performance Analytics</h3>
+                    <p data-en="In-depth analysis of your strength, weakness, speed, and accuracy with graphical reports. Track your progress over time and identify areas that need improvement." data-hi="ग्राफिकल रिपोर्ट के साथ आपकी ताकत, कमजोरी, गति और सटीकता का गहन विश्लेषण। समय के साथ अपनी प्रगति को ट्रैक करें और सुधार की आवश्यकता वाले क्षेत्रों की पहचान करें।">In-depth analysis of your strength, weakness, speed, and accuracy with graphical reports. Track your progress over time and identify areas that need improvement.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-ranking-star"></i>
+                    </div>
+                    <h3 data-en="All India Ranking" data-hi="ऑल इंडिया रैंकिंग">All India Ranking</h3>
+                    <p data-en="Compete with thousands of aspirants across India and know where you stand. Our ranking system helps you benchmark your performance against the national average." data-hi="भारत भर के हजारों अभ्यर्थियों के साथ प्रतिस्पर्धा करें और जानें कि आप कहाँ खड़े हैं। हमारी रैंकिंग प्रणाली आपको राष्ट्रीय औसत के विरुद्ध अपने प्रदर्शन को benchmark करने में मदद करती है।">Compete with thousands of aspirants across India and know where you stand. Our ranking system helps you benchmark your performance against the national average.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 data-en="Mobile App Access" data-hi="मोबाइल ऐप एक्सेस">Mobile App Access</h3>
+                    <p data-en="Access your tests, solutions, and analytics on the go with our mobile app. Study anytime, anywhere with full functionality across all devices." data-hi="हमारे मोबाइल ऐप के साथ चलते-फिरते अपने टेस्ट, समाधान और analytics तक पहुँचें। सभी उपकरणों पर पूर्ण functionality के साथ कभी भी, कहीं भी अध्ययन करें।">Access your tests, solutions, and analytics on the go with our mobile app. Study anytime, anywhere with full functionality across all devices.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 data-en="Expert Support" data-hi="विशेषज्ञ सहायता">Expert Support</h3>
+                    <p data-en="Get personalized feedback and doubt resolution from experienced CAs. Our support team is available to help you with technical issues and content-related queries." data-hi="अनुभवी CAs से व्यक्तिगत feedback और doubt resolution प्राप्त करें। तकनीकी मुद्दों और content-related queries में आपकी मदद करने के लिए हमारी support team उपलब्ध है।">Get personalized feedback and doubt resolution from experienced CAs. Our support team is available to help you with technical issues and content-related queries.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Pricing (Point 1) -->
     <section id="pricing" class="pricing">
         <div class="container">
-            <h2 class="section-title">Pricing Plans (20% Discount)</h2>
-            <p class="section-subtitle">Competitive vs Others (e.g., caexams.in ₹500-8000)</p>
+            <h2 class="section-title" data-en="Affordable CA Test Series Plans" data-hi="किफायती CA टेस्ट सीरीज योजनाएँ">Affordable CA Test Series Plans</h2>
+            <p class="section-subtitle" data-en="Choose the plan that best suits your preparation needs. All plans come with detailed solutions and performance reports." data-hi="अपनी तैयारी की जरूरतों के अनुसार योजना चुनें। सभी योजनाएँ विस्तृत समाधान और प्रदर्शन रिपोर्ट के साथ आती हैं।">Choose the plan that best suits your preparation needs. All plans come with detailed solutions and performance reports.</p>
+
             <div class="pricing-tabs">
-                <button class="pricing-tab active" data-target="all">All Groups Bundle</button>
-                <!-- Add tabs for Foundation etc. -->
+                <button class="pricing-tab active" data-target="foundation" data-en="CA Foundation" data-hi="CA Foundation">CA Foundation</button>
+                <button class="pricing-tab" data-target="intermediate" data-en="CA Intermediate" data-hi="CA Intermediate">CA Intermediate</button>
+                <button class="pricing-tab" data-target="final" data-en="CA Final" data-hi="CA Final">CA Final</button>
             </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Free Plan</h3>
-                    <div class="price">₹0</div>
-                    <ul><li>1 Test Series</li><li>PDF Download</li></ul>
-                    <button class="btn btn-outline" onclick="startFree()">Start Free</button>
+
+            <div class="pricing-panels">
+                <div class="pricing-panel active" id="panel-foundation">
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <h3 data-en="Free Pack" data-hi="फ्री पैक">Free Pack</h3>
+                            <div class="price"><span class="current" data-en="Free" data-hi="फ्री">Free</span></div>
+                            <ul class="features">
+                                <li data-en="1 Subject-wise Paper" data-hi="1 विषयवार पेपर">1 Subject-wise Paper</li>
+                                <li data-en="No Paper Checking" data-hi="कोई पेपर जांच नहीं">No Paper Checking</li>
+                                <li data-en="No Detailed Marking" data-hi="कोई विस्तृत मार्किंग नहीं">No Detailed Marking</li>
+                                <li data-en="Basic Access" data-hi="बेसिक एक्सेस">Basic Access</li>
+                            </ul>
+                            <button class="btn btn-outline open-free-test-modal" data-en="Sign Up for Free" data-hi="फ्री साइन अप">Sign Up for Free</button>
+                        </div>
+                        <div class="pricing-card highlight">
+                            <div class="badge" data-en="Most Popular" data-hi="सबसे लोकप्रिय">Most Popular</div>
+                            <h3 data-en="Silver Pack" data-hi="सिल्वर पैक">Silver Pack</h3>
+                            <div class="price"><span class="current">₹199</span> <span class="original">₹499</span></div>
+                            <ul class="features">
+                                <li data-en="2 Full-length Tests" data-hi="2 फुल-लेंथ टेस्ट">2 Full-length Tests</li>
+                                <li data-en="Detailed Checking & Marking" data-hi="विस्तृत जांच और मार्किंग">Detailed Checking & Marking</li>
+                                <li data-en="All India Rank (AIR)" data-hi="ऑल इंडिया रैंक (AIR)">All India Rank (AIR)</li>
+                                <li data-en="Email Support" data-hi="ईमेल सहायता">Email Support</li>
+                            </ul>
+                            <a class="btn btn-primary" href="checkout.html?plan=silver&level=foundation" data-en="Buy Now" data-hi="अभी खरीदें">Buy Now</a>
+                        </div>
+                        <div class="pricing-card">
+                            <h3 data-en="Gold Pack" data-hi="गोल्ड पैक">Gold Pack</h3>
+                            <div class="price"><span class="current">₹999</span> <span class="original">₹1999</span></div>
+                            <ul class="features">
+                                <li data-en="12 Full-length Tests" data-hi="12 फुल-लेंथ टेस्ट">12 Full-length Tests</li>
+                                <li data-en="(2 papers delivered per month)" data-hi="(प्रति माह 2 पेपर दिए जाते हैं)">(2 papers delivered per month)</li>
+                                <li data-en="Detailed Video Solutions" data-hi="विस्तृत वीडियो समाधान">Detailed Video Solutions</li>
+                                <li data-en="Personalized Feedback from CAs" data-hi="CAs से व्यक्तिगत feedback">Personalized Feedback from CAs</li>
+                                <li data-en="Priority Support" data-hi="प्राथमिकता सहायता">Priority Support</li>
+                            </ul>
+                            <a class="btn btn-primary" href="checkout.html?plan=gold&level=foundation" data-en="Buy Now" data-hi="अभी खरीदें">Buy Now</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="pricing-card highlight">
-                    <div class="badge">20% Off</div>
-                    <h3>Silver Plan</h3>
-                    <div class="price">₹2400 <span class="original">₹3000</span></div>
-                    <ul><li>10 Tests/Group</li><li>Materials</li></ul>
-                    <a href="checkout.html?plan=silver&amount=2400" class="btn btn-primary">Buy Now</a>
+
+                <div class="pricing-panel" id="panel-intermediate">
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <h3 data-en="Free Pack" data-hi="फ्री पैक">Free Pack</h3>
+                            <div class="price"><span class="current" data-en="Free" data-hi="फ्री">Free</span></div>
+                            <ul class="features">
+                                <li data-en="1 Subject-wise Paper" data-hi="1 विषयवार पेपर">1 Subject-wise Paper</li>
+                                <li data-en="No Paper Checking" data-hi="कोई पेपर जांच नहीं">No Paper Checking</li>
+                                <li data-en="Basic Access" data-hi="बेसिक एक्सेस">Basic Access</li>
+                            </ul>
+                            <button class="btn btn-outline open-free-test-modal" data-en="Sign Up for Free" data-hi="फ्री साइन अप">Sign Up for Free</button>
+                        </div>
+                        <div class="pricing-card highlight">
+                            <div class="badge" data-en="Most Popular" data-hi="सबसे लोकप्रिय">Most Popular</div>
+                            <h3 data-en="Silver Pack" data-hi="सिल्वर पैक">Silver Pack</h3>
+                            <div class="price"><span class="current">₹199</span> <span class="original">₹499</span></div>
+                            <ul class="features">
+                               <li data-en="2 Full-length Tests" data-hi="2 फुल-लेंथ टेस्ट">2 Full-length Tests</li>
+                                <li data-en="Detailed Checking & Marking" data-hi="विस्तृत जांच और मार्किंग">Detailed Checking & Marking</li>
+                                <li data-en="All India Rank (AIR)" data-hi="ऑल इंडिया रैंक (AIR)">All India Rank (AIR)</li>
+                                <li data-en="Email Support" data-hi="ईमेल सहायता">Email Support</li>
+                            </ul>
+                            <a class="btn btn-primary" href="checkout.html?plan=silver&level=intermediate" data-en="Buy Now" data-hi="अभी खरीदें">Buy Now</a>
+                        </div>
+                        <div class="pricing-card">
+                            <h3 data-en="Gold Pack" data-hi="गोल्ड पैक">Gold Pack</h3>
+                            <div class="price"><span class="current">₹999</span> <span class="original">₹1999</span></div>
+                            <ul class="features">
+                                <li data-en="12 Full-length Tests" data-hi="12 फुल-लेंथ टेस्ट">12 Full-length Tests</li>
+                                <li data-en="(2 papers delivered per month)" data-hi="(प्रति माह 2 पेपर दिए जाते हैं)">(2 papers delivered per month)</li>
+                                <li data-en="Detailed Video Solutions" data-hi="विस्तृत वीडियो समाधान">Detailed Video Solutions</li>
+                                <li data-en="Personalized Feedback from CAs" data-hi="CAs से व्यक्तिगत feedback">Personalized Feedback from CAs</li>
+                                <li data-en="Priority Support" data-hi="प्राथमिकता सहायता">Priority Support</li>
+                            </ul>
+                            <a class="btn btn-primary" href="checkout.html?plan=gold&level=intermediate" data-en="Buy Now" data-hi="अभी खरीदें">Buy Now</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="pricing-card">
-                    <h3>Gold Plan (All)</h3>
-                    <div class="price">₹8000 <span class="original">₹10000</span></div>
-                    <ul><li>Unlimited</li><li>Tournament</li></ul>
-                    <a href="checkout.html?plan=gold&amount=8000" class="btn btn-primary">Buy Now</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Platinum Plan</h3>
-                    <div class="price">₹12000 <span class="original">₹15000</span></div>
-                    <ul><li>Analytics</li><li>Videos</li></ul>
-                    <a href="checkout.html?plan=platinum&amount=12000" class="btn btn-primary">Buy Now</a>
+
+                <div class="pricing-panel" id="panel-final">
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <h3 data-en="Free Pack" data-hi="फ्री पैक">Free Pack</h3>
+                            <div class="price"><span class="current" data-en="Free" data-hi="फ्री">Free</span></div>
+                            <ul class="features">
+                                <li data-en="1 Subject-wise Paper" data-hi="1 विषयवार पेपर">1 Subject-wise Paper</li>
+                                <li data-en="No Paper Checking" data-hi="कोई पेपर जांच नहीं">No Paper Checking</li>
+                                <li data-en="Basic Access" data-hi="बेसिक एक्सेस">Basic Access</li>
+                            </ul>
+                            <button class="btn btn-outline open-free-test-modal" data-en="Sign Up for Free" data-hi="फ्री साइन अप">Sign Up for Free</button>
+                        </div>
+                        <div class="pricing-card highlight">
+                            <div class="badge" data-en="Most Popular" data-hi="सबसे लोकप्रिय">Most Popular</div>
+                            <h3 data-en="Silver Pack" data-hi="सिल्वर पैक">Silver Pack</h3>
+                            <div class="price"><span class="current">₹199</span> <span class="original">₹499</span></div>
+                            <ul class="features">
+                                <li data-en="2 Full-length Tests" data-hi="2 फुल-लेंथ टेस्ट">2 Full-length Tests</li>
+                                <li data-en="Detailed Checking & Marking" data-hi="विस्तृत जांच और मार्किंग">Detailed Checking & Marking</li>
+                                <li data-en="All India Rank (AIR)" data-hi="ऑल इंडिया रैंक (AIR)">All India Rank (AIR)</li>
+                                <li data-en="Email Support" data-hi="ईमेल सहायता">Email Support</li>
+                            </ul>
+                            <a class="btn btn-primary" href="checkout.html?plan=silver&level=final" data-en="Buy Now" data-hi="अभी खरीदें">Buy Now</a>
+                        </div>
+                        <div class="pricing-card">
+                            <h3 data-en="Gold Pack" data-hi="गोल्ड पैक">Gold Pack</h3>
+                            <div class="price"><span class="current">₹999</span> <span class="original">₹1999</span></div>
+                            <ul class="features">
+                                <li data-en="12 Full-length Tests" data-hi="12 फुल-लेंथ टेस्ट">12 Full-length Tests</li>
+                                <li data-en="(2 papers delivered per month)" data-hi="(प्रति माह 2 पेपर दिए जाते हैं)">(2 papers delivered per month)</li>
+                                <li data-en="Detailed Video Solutions" data-hi="विस्तृत वीडियो समाधान">Detailed Video Solutions</li>
+                                <li data-en="Personalized Feedback from CAs" data-hi="CAs से व्यक्तिगत feedback">Personalized Feedback from CAs</li>
+                                <li data-en="Priority Support" data-hi="प्राथमिकता सहायता">Priority Support</li>
+                            </ul>
+                            <a class="btn btn-primary" href="checkout.html?plan=gold&level=final" data-en="Buy Now" data-hi="अभी खरीदें">Buy Now</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials (Your existing code here) -->
-
-    <!-- CTA (Your existing) -->
-
-    <!-- Footer (Your existing) -->
-
-    <!-- Tournament Modal (Point 6) -->
-    <div class="modal fade" id="tournamentModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5>CA Tournament Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    <section id="results" class="results">
+        <div class="container">
+            <h2 class="section-title" data-en="Results & Student Success Stories" data-hi="परिणाम और छात्र सफलता की कहानियाँ">Results & Student Success Stories</h2>
+            <p class="section-subtitle" data-en="See how our CA Test Series has helped thousands of students achieve their goals and top the CA exams." data-hi="देखें कि कैसे हमारी CA टेस्ट सीरीज ने हजारों छात्रों को उनके लक्ष्यों को प्राप्त करने और CA परीक्षाओं में टॉप करने में मदद की है।">See how our CA Test Series has helped thousands of students achieve their goals and top the CA exams.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label" data-en="Students Enrolled" data-hi="छात्र नामांकित">Students Enrolled</div>
                 </div>
-                <div class="modal-body">
-                    <p>3-Hour Exam | Prizes up to ₹25k | Gold Auto | Others ₹500/Paper</p>
-                    <a href="checkout.html?plan=tournament&amount=2000" class="btn btn-primary">Join</a>
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label" data-en="Success Rate" data-hi="सफलता दर">Success Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">250+</div>
+                    <div class="stat-label" data-en="AIR Achieved" data-hi="AIR प्राप्त">AIR Achieved</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label" data-en="Satisfaction Rate" data-hi="संतुष्टि दर">Satisfaction Rate</div>
+                </div>
+            </div>
+
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            <p data-en="The detailed solutions in the CA Foundation test series helped me understand concepts I had been struggling with for months. The All India Rank was a great motivator! I secured AIR 42 in my first attempt." data-hi="CA Foundation टेस्ट सीरीज के विस्तृत समाधानों ने मुझे उन अवधारणाओं को समझने में मदद की जिनसे मैं महीनों से संघर्ष कर रहा था। ऑल इंडिया रैंक एक शानदार प्रेरक था! मैंने अपने पहले प्रयास में AIR 42 सुरक्षित किया।">"The detailed solutions in the CA Foundation test series helped me understand concepts I had been struggling with for months. The All India Rank was a great motivator! I secured AIR 42 in my first attempt."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4>Priya Sharma</h4>
+                            <span data-en="CA Foundation, AIR 42" data-hi="CA Foundation, AIR 42">CA Foundation, AIR 42</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            <p>"The exam-pattern mocks for CA Intermediate were spot on and the analytics showed exactly where I needed to improve. The personalized feedback helped me increase my score by 35%."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4>Rahul Kumar</h4>
+                            <span>CA Intermediate, AIR 28</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            <p>"Loved the quality of questions and the solution PDFs in the CA Final test series. The video solutions were incredibly helpful. Helped me score an AIR 15 in my final attempt."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4>Anita Singh</h4>
+                            <span>CA Final, AIR 15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-en="Ready to Top Your CA Exams?" data-hi="अपनी CA परीक्षाओं में टॉप करने के लिए तैयार?">Ready to Top Your CA Exams?</h2>
+                <p data-en="Join thousands of successful CA students who achieved their dreams with our test series. Get started today with our affordable plans." data-hi="हजारों सफल CA छात्रों में शामिल हों जिन्होंने हमारी टेस्ट सीरीज के साथ अपने सपनों को प्राप्त किया। हमारी किफायती योजनाओं के साथ आज ही शुरुआत करें।">Join thousands of successful CA students who achieved their dreams with our test series. Get started today with our affordable plans.</p>
+                <a href="#pricing" class="btn btn-primary btn-large" data-en="Choose Your Plan" data-hi="अपनी योजना चुनें">Choose Your Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="caexam" class="logo">
+                        <p data-en="India's leading CA Test Series platform offering exam-pattern mock tests, detailed solutions, performance analytics, and All India Ranking. Trusted by 25,000+ CA aspirants across India." data-hi="भारत का अग्रणी CA टेस्ट सीरीज प्लेटफॉर्म जो परीक्षा-पैटर्न मॉक टेस्ट, विस्तृत समाधान, प्रदर्शन विश्लेषण और ऑल इंडिया रैंकिंग प्रदान करता है। पूरे भारत में 25,000+ CA उम्मीदवारों द्वारा विश्वसनीय।">India's leading CA Test Series platform offering exam-pattern mock tests, detailed solutions, performance analytics, and All India Ranking. Trusted by 25,000+ CA aspirants across India.</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4 data-en="Quick Links" data-hi="त्वरित लिंक">Quick Links</h4>
+                    <ul>
+                        <li><a href="#home" data-en="Home" data-hi="होम">Home</a></li>
+                        <li><a href="#test-series" data-en="Test Series" data-hi="टेस्ट सीरीज">Test Series</a></li>
+                        <li><a href="#pricing" data-en="Pricing" data-hi="मूल्य">Pricing</a></li>
+                        <li><a href="#free-tests" data-en="Free Tests" data-hi="फ्री टेस्ट">Free Tests</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 data-en="Contact Info" data-hi="संपर्क जानकारी">Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> CA Excellence Center New Delhi 110001</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@caexam.com</p>
+                    </div>
+                </div>
+                 <div class="footer-column">
+                    <h4 data-en="Newsletter" data-hi="न्यूज़लेटर">Newsletter</h4>
+                    <p data-en="Subscribe to get updates on new test series, offers, and CA exam tips." data-hi="नई टेस्ट सीरीज, ऑफers और CA परीक्षा युक्तियों पर अपडेट प्राप्त करने के लिए सब्सक्राइब करें।">Subscribe to get updates on new test series, offers, and CA exam tips.</p>
+                    <form class="newsletter-form" name="newsletter">
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <button type="submit" data-en="Subscribe" data-hi="सब्सक्राइब">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 caexam. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 data-en="Login / Register" data-hi="लॉगिन / रजिस्टर">Login / Register</h2>
+                <span class="close" id="closeModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="login" data-en="Login" data-hi="लॉगिन">Login</button>
+                        <button class="tab-btn" data-tab="register" data-en="Register" data-hi="रजिस्टर">Register</button>
+                    </div>
+                    
+                    <div id="login" class="tab-content active">
+                        <form class="auth-form" id="loginForm">
+                            <div class="form-group">
+                                <label for="loginEmail" data-en="Email/Username" data-hi="ईमेल/उपयोगकर्ता नाम">Email/Username</label>
+                                <input type="text" id="loginEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword" data-en="Password" data-hi="पासवर्ड">Password</label>
+                                <input type="password" id="loginPassword" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-en="Login" data-hi="लॉगिन">Login</button>
+                        </form>
+                    </div>
+                    
+                    <div id="register" class="tab-content">
+                        <form class="auth-form" id="registerForm">
+                            <div class="form-group">
+                                <label for="regName" data-en="Full Name" data-hi="पूरा नाम">Full Name</label>
+                                <input type="text" id="regName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="regEmail" data-en="Email" data-hi="ईमेल">Email</label>
+                                <input type="email" id="regEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="regPassword" data-en="Password" data-hi="पासवर्ड">Password</label>
+                                <input type="password" id="regPassword" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-en="Register" data-hi="रजिस्टर">Register</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- AI Chat (Point 10) -->
-    <div id="chatBox" class="chat-box">
-        <div class="chat-header">
-            CA AI Assistant <button onclick="closeChat()" style="float:right;">×</button>
+    <div id="freeTestModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Download Your Free Test</h2>
+                <span class="close" id="closeFreeTestModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Please provide your Email or Mobile Number to start the download.</p>
+                <form class="auth-form" id="freeTestForm">
+                    <div class="form-group">
+                        <label for="freeTestEmail">Email or Mobile Number</label>
+                        <input type="text" id="freeTestEmail" placeholder="Enter your email or mobile" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Download Now</button>
+                </form>
+            </div>
         </div>
-        <div class="chat-body" id="chatMessages">Hi! Ask doubts.</div>
-        <input type="text" id="chatInput" placeholder="Type..." onkeypress="if(event.key==='Enter') sendMessage();">
     </div>
-    <button onclick="openChat()" id="chatToggle" style="position:fixed;bottom:20px;right:20px;background:#0a5fc5;color:white;border:none;border-radius:50%;width:50px;height:50px;"> <i class="fas fa-comments"></i> </button>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="script.js"></script>
 </body>
 </html>

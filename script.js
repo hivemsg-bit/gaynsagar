@@ -1,28 +1,19 @@
-//
-// 🔴 YAHAN APNA NAYA GOOGLE SCRIPT URL PASTE KAREIN 🔴
-// Replace the URL below with your actual deployed Google Apps Script web app URL
-// Example: 'https://script.google.com/macros/s/YOUR-DEPLOYED-ID-HERE/exec'
-//
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyYkTDOtWlWSaAYUEGDGhnGkt-ubunZgo0WfkrbyNrfLmPUYy9LkP5TZqM9TtbhbXua/exec'; // ← PASTE YOUR REAL URL HERE!
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyYkTDOtWlWSaAYUEGDGhnGkt-ubunZgo0WfkrbyNrfLmPUYy9LkP5TZqM9TtbhbXua/exec';
 
-// DOM Ready
 document.addEventListener('DOMContentLoaded', function() {
-    // --- Google Sheet Submission Logic (Improved with Timeout & Validation) ---
     async function submitToGoogleSheet(formData, sheetName) {
-        // Validation: Check if URL is properly set (not empty or default placeholder)
-        if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes('AKfycbxm2yhSbYtwudph3Ba_nxCfT35PV9t1E1txYdPu8ljNeEFRzt0PBdpra5Td2hULakU-Hg')) {
-            console.error('Google Script URL is not set. Please update it in script.js with your deployed GAS URL.');
-            alert('Form submission is not configured correctly. Please add the Google Script URL in script.js');
+        if (!GOOGLE_SCRIPT_URL) {
+            console.error('Google Script URL is not set.');
+            alert('Form submission is not configured correctly.');
             return false;
         }
 
-        // Basic client-side validation for form data
         if (!formData || Object.keys(formData).length === 0) {
             console.error('No form data provided');
             alert('Please fill in the required fields.');
             return false;
         }
-        // Example: Validate email if present
+        
         if (formData.Email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.Email)) {
             alert('Please enter a valid email address.');
             return false;
@@ -34,11 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 10000); // 10-second timeout
+            const timeoutId = setTimeout(() => controller.abort(), 10000);
 
             const response = await fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors', // Bypasses CORS issues with GAS
+                mode: 'no-cors',
                 cache: 'no-cache',
                 headers: {
                     'Content-Type': 'application/json'
@@ -52,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             clearTimeout(timeoutId);
-            // In no-cors mode, we can't read response, so assume success if no error
             console.log(`Submission sent to Google Sheets for sheet: ${sheetName}`);
             return true;
         } catch (error) {
@@ -67,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // --- Mobile Navigation ---
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
 
@@ -88,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- Main Login/Register Modal ---
     const loginBtn = document.getElementById('loginBtn');
     const loginModal = document.getElementById('loginModal');
     const closeModal = document.getElementById('closeModal');
@@ -108,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Close modal when clicking outside
     window.addEventListener('click', function(event) {
         if (event.target === loginModal || event.target === freeTestModal) {
             if (loginModal) loginModal.style.display = 'none';
@@ -117,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Tab Switching in Main Modal
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
@@ -132,12 +118,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- Form Submissions (Login & Register) ---
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // Basic login validation (add more if needed)
             const email = document.getElementById('loginEmail')?.value;
             const password = document.getElementById('loginPassword')?.value;
             if (!email || !password) {
@@ -177,18 +161,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (success) {
                 alert('Registration successful! You can now log in.');
                 this.reset();
-                // Switch to login tab
                 const loginTabBtn = document.querySelector('.tab-btn[data-tab="login"]');
                 if (loginTabBtn) loginTabBtn.click();
-            } else {
-                // Error handled in submitToGoogleSheet
             }
             submitButton.textContent = 'Register';
             submitButton.disabled = false;
         });
     }
 
-    // --- Free Test Modal & Form Logic ---
     const openFreeTestModalBtns = document.querySelectorAll('.open-free-test-modal');
     const closeFreeTestModal = document.getElementById('closeFreeTestModal');
     const freeTestForm = document.getElementById('freeTestForm');
@@ -209,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    const freeTestPdfUrl = 'https://drive.google.com/uc?export=download&id=1ztptHMUr3KXA_vq8It1bGsDQrc8d5rNG'; // Ensure this file is public
+    const freeTestPdfUrl = 'https://drive.google.com/uc?export=download&id=1ztptHMUr3KXA_vq8It1bGsDQrc8d5rNG';
 
     if (freeTestForm) {
         freeTestForm.addEventListener('submit', async function(e) {
@@ -236,7 +216,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (success) {
                 alert('Thank you! Your free test paper will begin downloading now.');
                 
-                // Trigger PDF download
                 const downloadLink = document.createElement('a');
                 downloadLink.href = freeTestPdfUrl;
                 downloadLink.download = 'caexam-Free-Test-Paper.pdf';
@@ -244,12 +223,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 downloadLink.click();
                 document.body.removeChild(downloadLink);
 
-                // Close modal and reset
                 if (freeTestModal) freeTestModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
                 this.reset();
-            } else {
-                // Error handled in submitToGoogleSheet
             }
             
             submitButton.textContent = 'Download Now';
@@ -257,7 +233,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- Pricing Tabs ---
     const pricingTabs = document.querySelectorAll('.pricing-tab');
     const pricingPanels = document.querySelectorAll('.pricing-panel');
 
@@ -272,7 +247,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- Testimonial Slider ---
     let currentSlideIndex = 0;
     const slides = document.querySelectorAll('.testimonial-slide');
     const dots = document.querySelectorAll('.dot');
@@ -306,10 +280,8 @@ document.addEventListener('DOMContentLoaded', function() {
         startSlider();
     }
 
-    // --- Coupon Code Copy Functionality ---
     const copyCouponBtn = document.getElementById('horizontalCouponBtn');
     if (copyCouponBtn) {
-        // Assume data-en attribute holds original text; fallback if not
         const originalText = copyCouponBtn.dataset.en || copyCouponBtn.textContent;
         copyCouponBtn.addEventListener('click', function() {
             const couponCode = 'SAVE100';
@@ -325,12 +297,10 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
 
-    // --- Language Switching ---
     const languageSelect = document.getElementById('languageSelect');
     if (languageSelect) {
-        const savedLanguage = localStorage.getItem('preferredLanguage') || 'en'; // Default to English
+        const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
         languageSelect.value = savedLanguage;
         switchLanguage(savedLanguage);
 
@@ -353,13 +323,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-        // Re-apply to button texts if needed (e.g., copy button)
-        if (lang === 'hi') {
-            // Add Hindi translations if you have data-hi attributes
-        }
     }
 
-    // --- Smooth Scrolling ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -375,7 +340,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- Newsletter Form ---
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {

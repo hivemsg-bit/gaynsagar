@@ -23,12 +23,25 @@
             line-height: 1.6;
             color: #333;
             overflow-x: hidden;
+            background-color: #f8f9fa;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* Color Variables */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --light: #f8f9fa;
+            --dark: #1f2937;
+            --gray: #6b7280;
+            --light-gray: #e5e7eb;
         }
 
         /* Navigation */
@@ -59,13 +72,13 @@
 
         .nav-link {
             text-decoration: none;
-            color: #333;
+            color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
         }
 
         .nav-link:hover {
-            color: #4a6cf7;
+            color: var(--primary);
         }
 
         .nav-actions {
@@ -76,18 +89,24 @@
 
         .language-switcher select {
             padding: 8px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--light-gray);
             border-radius: 5px;
+            background: white;
         }
 
         .login-btn {
-            background: #4a6cf7;
+            background: var(--primary);
             color: white;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
             font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .login-btn:hover {
+            background: var(--primary-dark);
         }
 
         .hamburger {
@@ -99,22 +118,17 @@
         .hamburger span {
             width: 25px;
             height: 3px;
-            background: #333;
+            background: var(--dark);
             margin: 3px 0;
             transition: 0.3s;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #4a6cf7 0%, #2b4fcc 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
             padding: 150px 0 100px;
             text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         .hero-title {
@@ -140,16 +154,18 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s;
+            display: inline-block;
         }
 
         .btn-primary {
             background: #fff;
-            color: #4a6cf7;
+            color: var(--primary);
         }
 
         .btn-primary:hover {
             background: #f8f9fa;
             transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .btn-outline {
@@ -160,26 +176,27 @@
 
         .btn-outline:hover {
             background: white;
-            color: #4a6cf7;
+            color: var(--primary);
         }
 
         /* Services Section */
         .services {
             padding: 80px 0;
-            background: #f8f9fa;
+            background: var(--light);
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 20px;
+            color: var(--dark);
         }
 
         .section-subtitle {
             text-align: center;
             font-size: 1.1rem;
             margin-bottom: 50px;
-            color: #666;
+            color: var(--gray);
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
@@ -198,31 +215,35 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             text-align: center;
             transition: transform 0.3s;
+            border-top: 4px solid var(--primary);
         }
 
         .service-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .service-icon {
             font-size: 2.5rem;
-            color: #4a6cf7;
+            color: var(--primary);
             margin-bottom: 20px;
         }
 
         .service-card h3 {
             margin-bottom: 15px;
             font-size: 1.5rem;
+            color: var(--dark);
         }
 
         .service-card p {
             margin-bottom: 20px;
-            color: #666;
+            color: var(--gray);
         }
 
         /* Free Tests Section */
         .free-tests {
             padding: 80px 0;
+            background: white;
         }
 
         .test-cards {
@@ -237,10 +258,17 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             overflow: hidden;
+            border: 1px solid var(--light-gray);
+            transition: transform 0.3s;
+        }
+
+        .test-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .test-card-header {
-            background: #4a6cf7;
+            background: var(--primary);
             color: white;
             padding: 20px;
             text-align: center;
@@ -253,6 +281,7 @@
         .test-card-body p {
             font-weight: 600;
             margin-bottom: 15px;
+            color: var(--dark);
         }
 
         .test-card-body ul {
@@ -262,18 +291,19 @@
 
         .test-card-body li {
             padding: 5px 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--light-gray);
+            color: var(--gray);
         }
 
         .test-card-footer {
             padding: 20px;
             text-align: center;
-            background: #f8f9fa;
+            background: var(--light);
         }
 
         /* Coupon Banner */
         .coupon-banner-horizontal {
-            background: linear-gradient(135deg, #4a6cf7 0%, #2b4fcc 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
             padding: 20px;
             border-radius: 10px;
@@ -294,7 +324,7 @@
 
         .coupon-code {
             background: white;
-            color: #4a6cf7;
+            color: var(--primary);
             padding: 5px 10px;
             border-radius: 5px;
             font-weight: bold;
@@ -303,7 +333,7 @@
         /* Features Section */
         .features {
             padding: 80px 0;
-            background: #f8f9fa;
+            background: var(--light);
         }
 
         .features-grid {
@@ -318,21 +348,33 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .feature-icon {
             font-size: 2.5rem;
-            color: #4a6cf7;
+            color: var(--primary);
             margin-bottom: 20px;
         }
 
         .feature-item h3 {
             margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .feature-item p {
+            color: var(--gray);
         }
 
         /* Pricing Section */
         .pricing {
             padding: 80px 0;
+            background: white;
         }
 
         .pricing-tabs {
@@ -344,14 +386,16 @@
 
         .pricing-tab {
             padding: 10px 20px;
-            background: #eee;
+            background: var(--light);
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
         }
 
         .pricing-tab.active {
-            background: #4a6cf7;
+            background: var(--primary);
             color: white;
         }
 
@@ -376,22 +420,34 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             text-align: center;
             position: relative;
+            border: 1px solid var(--light-gray);
+            transition: transform 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .pricing-card.highlight {
-            border: 2px solid #4a6cf7;
+            border: 2px solid var(--primary);
             transform: scale(1.05);
+        }
+
+        .pricing-card.highlight:hover {
+            transform: scale(1.05) translateY(-5px);
         }
 
         .badge {
             position: absolute;
             top: -10px;
             right: 20px;
-            background: #ff6b6b;
+            background: var(--accent);
             color: white;
             padding: 5px 10px;
             border-radius: 20px;
             font-size: 0.8rem;
+            font-weight: 600;
         }
 
         .price {
@@ -401,12 +457,12 @@
         .current {
             font-size: 2rem;
             font-weight: bold;
-            color: #4a6cf7;
+            color: var(--primary);
         }
 
         .original {
             text-decoration: line-through;
-            color: #999;
+            color: var(--gray);
             margin-left: 10px;
         }
 
@@ -417,13 +473,14 @@
 
         .features li {
             padding: 8px 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--light-gray);
+            color: var(--gray);
         }
 
         /* Results Section */
         .results {
             padding: 80px 0;
-            background: #f8f9fa;
+            background: var(--light);
         }
 
         .stats-grid {
@@ -435,13 +492,21 @@
 
         .stat-item {
             text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .stat-number {
             font-size: 2.5rem;
             font-weight: bold;
-            color: #4a6cf7;
+            color: var(--primary);
             margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--gray);
         }
 
         .testimonial-slider {
@@ -465,10 +530,16 @@
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
+            color: var(--dark);
         }
 
         .testimonial-author h4 {
             margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .testimonial-author span {
+            color: var(--gray);
         }
 
         .testimonial-dots {
@@ -481,19 +552,20 @@
         .dot {
             width: 12px;
             height: 12px;
-            background: #ddd;
+            background: var(--light-gray);
             border-radius: 50%;
             cursor: pointer;
+            transition: background 0.3s;
         }
 
         .dot.active {
-            background: #4a6cf7;
+            background: var(--primary);
         }
 
         /* CTA Section */
         .cta {
             padding: 80px 0;
-            background: linear-gradient(135deg, #4a6cf7 0%, #2b4fcc 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
             text-align: center;
         }
@@ -515,7 +587,7 @@
 
         /* Footer */
         .footer {
-            background: #2c3e50;
+            background: var(--dark);
             color: white;
             padding: 60px 0 20px;
         }
@@ -530,6 +602,7 @@
         .footer-column h4 {
             margin-bottom: 20px;
             font-size: 1.2rem;
+            color: white;
         }
 
         .footer-column ul {
@@ -543,6 +616,7 @@
         .footer-column ul li a {
             color: #ddd;
             text-decoration: none;
+            transition: color 0.3s;
         }
 
         .footer-column ul li a:hover {
@@ -554,6 +628,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            color: #ddd;
         }
 
         .newsletter-form {
@@ -570,18 +645,24 @@
         }
 
         .newsletter-form button {
-            background: #4a6cf7;
+            background: var(--primary);
             color: white;
             border: none;
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--primary-dark);
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid #3a4a5e;
+            color: #ddd;
         }
 
         /* Modal Styles */
@@ -609,7 +690,7 @@
 
         .modal-header {
             padding: 20px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--light-gray);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -617,17 +698,19 @@
 
         .modal-header h2 {
             margin: 0;
+            color: var(--dark);
         }
 
         .close {
-            color: #aaa;
+            color: var(--gray);
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
+            transition: color 0.3s;
         }
 
         .close:hover {
-            color: #000;
+            color: var(--dark);
         }
 
         .modal-body {
@@ -640,7 +723,7 @@
 
         .tab-buttons {
             display: flex;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--light-gray);
             margin-bottom: 20px;
         }
 
@@ -651,11 +734,13 @@
             cursor: pointer;
             font-weight: 500;
             border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+            color: var(--gray);
         }
 
         .tab-btn.active {
-            border-bottom-color: #4a6cf7;
-            color: #4a6cf7;
+            border-bottom-color: var(--primary);
+            color: var(--primary);
         }
 
         .tab-content {
@@ -680,13 +765,20 @@
         .form-group label {
             margin-bottom: 5px;
             font-weight: 500;
+            color: var(--dark);
         }
 
         .form-group input {
             padding: 12px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--light-gray);
             border-radius: 5px;
             font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+            outline: none;
         }
 
         /* Responsive Design */
@@ -743,7 +835,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="logo.png" alt="caexam - Best CA Test Series" class="logo">
+                <img src="https://via.placeholder.com/150x50/2563eb/ffffff?text=CAExam" alt="caexam - Best CA Test Series" class="logo">
             </div>
             <div class="nav-menu" id="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
@@ -773,43 +865,43 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="hero-title" data-en="Ace Your CA Exams with India's Best Test Series" data-hi="भारत की सर्वश्रेष्ठ टेस्ट सीरीज के साथ अपनी CA परीक्षाओं में टॉप करें">Ace Your CA Exams with India's Best Test Series</h1>
-            <p class="hero-subtitle" data-en="Get access to high-quality, exam-pattern mock tests for CA Foundation, Intermediate, and Final. Detailed performance analysis, video solutions, and All India Rank included. Join 25,000+ successful CA students who achieved their goals with our test series." data-hi="CA Foundation, Intermediate और Final के लिए उच्च-गुणवत्ता, परीक्षा-पैटर्न मॉक टेस्ट तक पहुँचें। विस्तृत प्रदर्शन विश्लेषण, वीडियो समाधान और ऑल इंडिया रैंक शामिल। 25,000+ सफल CA छात्रों में शामिल हों जिन्होंने हमारी टे스्ट सीरीज के साथ अपने लक्ष्यों को प्राप्त किया।">Get access to high-quality, exam-pattern mock tests for CA Foundation, Intermediate, and Final. Detailed performance analysis, video solutions, and All India Rank included. Join 25,000+ successful CA students who achieved their goals with our test series.</p>
+            <h1 class="hero-title">Ace Your CA Exams with India's Best Test Series</h1>
+            <p class="hero-subtitle">Get access to high-quality, exam-pattern mock tests for CA Foundation, Intermediate, and Final. Detailed performance analysis, video solutions, and All India Rank included. Join 25,000+ successful CA students who achieved their goals with our test series.</p>
             <div class="hero-buttons">
-                <a href="#pricing" class="btn btn-primary" data-en="Browse Test Series" data-hi="टेस्ट सीरीज देखें">Browse Test Series</a>
-                <a href="#free-tests" class="btn btn-outline" data-en="Try Free Test" data-hi="फ्री टेस्ट आज़माएं">Try Free Test</a>
+                <a href="#pricing" class="btn btn-primary">Browse Test Series</a>
+                <a href="#free-tests" class="btn btn-outline">Try Free Test</a>
             </div>
         </div>
     </section>
 
     <section id="test-series" class="services">
         <div class="container">
-            <h2 class="section-title" data-en="Our Comprehensive CA Test Series" data-hi="हमारी व्यापक CA टेस्ट सीरीज">Our Comprehensive CA Test Series</h2>
-            <p class="section-subtitle" data-en="Designed by experienced CAs to match the latest ICAI exam pattern and difficulty level. Get the perfect practice for your CA Foundation, CA Intermediate, and CA Final exams." data-hi="अनुभवी CAs द्वारा नवीनतम ICAI परीक्षा पैटर्न और कठिनाई स्तर से मेल खाने के लिए डिज़ाइन किया गया। अपनी CA Foundation, CA Intermediate और CA Final परीक्षाओं के लिए सही अभ्यास प्राप्त करें।">Designed by experienced CAs to match the latest ICAI exam pattern and difficulty level. Get the perfect practice for your CA Foundation, CA Intermediate, and CA Final exams.</p>
+            <h2 class="section-title">Our Comprehensive CA Test Series</h2>
+            <p class="section-subtitle">Designed by experienced CAs to match the latest ICAI exam pattern and difficulty level. Get the perfect practice for your CA Foundation, CA Intermediate, and CA Final exams.</p>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-layer-group"></i>
                     </div>
-                    <h3 data-en="CA Foundation Test Series" data-hi="CA Foundation टेस्ट सीरीज">CA Foundation Test Series</h3>
-                    <p data-en="Complete test series for CA Foundation covering all subjects. 20+ full-length tests based on the latest pattern. Perfect for first-time aspirants to build strong fundamentals and exam temperament." data-hi="सभी विषयों को कवर करने वाली CA Foundation के लिए संपूर्ण टेस्ट सीरीज। नवीनतम पैटर्न पर आधारित 20+ फुल-लेंथ टेस्ट। मजबूत बुनियादी बातों और परीक्षा की मनोदशा को बनाने के लिए पहली बार उम्मीदवारों के लिए बिल्कुल सही।">Complete test series for CA Foundation covering all subjects. 20+ full-length tests based on the latest pattern. Perfect for first-time aspirants to build strong fundamentals and exam temperament.</p>
-                    <a href="#pricing" class="btn btn-primary" data-en="View Plans" data-hi="प्लान देखें">View Plans</a>
+                    <h3>CA Foundation Test Series</h3>
+                    <p>Complete test series for CA Foundation covering all subjects. 20+ full-length tests based on the latest pattern. Perfect for first-time aspirants to build strong fundamentals and exam temperament.</p>
+                    <a href="#pricing" class="btn btn-primary">View Plans</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3 data-en="CA Intermediate Test Series" data-hi="CA Intermediate टेस्ट सीरीज">CA Intermediate Test Series</h3>
-                    <p data-en="Advanced test series for both groups of CA Intermediate. Topic-wise tests, mock exams, and revision packs. Designed to help you master complex concepts and improve your problem-solving speed." data-hi="CA Intermediate के दोनों समूहों के लिए उन्नत टेस्ट सीरीज। टॉपिक-वाइज टेस्ट, मॉक एग्जाम और रिवीजन पैक। जटिल अवधारणाओं में महारत हासिल करने और आपकी समस्या-समाधान गति में सुधार करने में मदद करने के लिए डिज़ाइन किया गया।">Advanced test series for both groups of CA Intermediate. Topic-wise tests, mock exams, and revision packs. Designed to help you master complex concepts and improve your problem-solving speed.</p>
-                    <a href="#pricing" class="btn btn-primary" data-en="View Plans" data-hi="प्लान देखें">View Plans</a>
+                    <h3>CA Intermediate Test Series</h3>
+                    <p>Advanced test series for both groups of CA Intermediate. Topic-wise tests, mock exams, and revision packs. Designed to help you master complex concepts and improve your problem-solving speed.</p>
+                    <a href="#pricing" class="btn btn-primary">View Plans</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
-                    <h3 data-en="CA Final Test Series" data-hi="CA Final टेस्ट सीरीज">CA Final Test Series</h3>
-                    <p data-en="Expert-curated tests for the final level CA exams. Includes paper-specific mock tests and previous year paper analysis. The ultimate preparation tool to ensure you're ready for the final challenge." data-hi="फाइनल लेवल CA परीक्षाओं के लिए विशेषज्ञों द्वारा तैयार टेस्ट। पेपर-विशिष्ट मॉक टेस्ट और पिछले वर्षों के पेपर विश्लेषण शामिल। यह सुनिश्चित करने के लिए अंतिम तैयारी उपकरण कि आप अंतिम चुनौती के लिए तैयार हैं।">Expert-curated tests for the final level CA exams. Includes paper-specific mock tests and previous year paper analysis. The ultimate preparation tool to ensure you're ready for the final challenge.</p>
-                    <a href="#pricing" class="btn btn-primary" data-en="View Plans" data-hi="प्लान देखें">View Plans</a>
+                    <h3>CA Final Test Series</h3>
+                    <p>Expert-curated tests for the final level CA exams. Includes paper-specific mock tests and previous year paper analysis. The ultimate preparation tool to ensure you're ready for the final challenge.</p>
+                    <a href="#pricing" class="btn btn-primary">View Plans</a>
                 </div>
             </div>
         </div>
@@ -817,58 +909,58 @@
 
     <section id="free-tests" class="free-tests">
         <div class="container">
-            <h2 class="section-title" data-en="Try Our Free CA Test Series" data-hi="हमारी निःशुल्क CA टेस्ट सीरीज आज़माएं">Try Our Free CA Test Series</h2>
-            <p class="section-subtitle" data-en="Experience our platform quality with free objective-type tests. Each test contains 25 questions with instant results and detailed solutions." data-hi="निःशुल्क ऑब्जेक्टिव-टाइप टेス्ट के साथ हमारे प्लेटफ़ॉर्म की गुणवत्ता का अनुभव करें। प्रत्येक टेस्ट में त्वरित परिणाम और विस्तृत समाधान के साथ 25 प्रश्न होते हैं।">Experience our platform quality with free objective-type tests. Each test contains 25 questions with instant results and detailed solutions.</p>
+            <h2 class="section-title">Try Our Free CA Test Series</h2>
+            <p class="section-subtitle">Experience our platform quality with free objective-type tests. Each test contains 25 questions with instant results and detailed solutions.</p>
 
             <div class="test-cards">
                 <div class="test-card">
                     <div class="test-card-header">
-                        <h3 data-en="CA Foundation Free Test" data-hi="CA Foundation निःशुल्क टेस्ट">CA Foundation Free Test</h3>
+                        <h3>CA Foundation Free Test</h3>
                     </div>
                     <div class="test-card-body">
-                        <p data-en="Free 30-min Practice Test" data-hi="निःशुल्क 30-मिनट का अभ्यास टेस्ट">Free 30-min Practice Test</p>
+                        <p>Free 30-min Practice Test</p>
                         <ul>
-                            <li data-en="25 MCQs" data-hi="25 MCQs">25 MCQs</li>
-                            <li data-en="Subject: Principles & Practice of Accounting" data-hi="विषय: लेखांकन के सिद्धांत और अभ्यास">Subject: Principles & Practice of Accounting</li>
-                            <li data-en="Instant Score & Solutions" data-hi="तुरंत स्कोर और समाधान">Instant Score & Solutions</li>
+                            <li>25 MCQs</li>
+                            <li>Subject: Principles & Practice of Accounting</li>
+                            <li>Instant Score & Solutions</li>
                         </ul>
                     </div>
                     <div class="test-card-footer">
-                        <button class="btn btn-primary open-free-test-modal" data-en="Start Free Test" data-hi="फ्री टेस्ट शुरू करें">Start Free Test</button>
+                        <button class="btn btn-primary open-free-test-modal">Start Free Test</button>
                     </div>
                 </div>
 
                 <div class="test-card">
                     <div class="test-card-header">
-                        <h3 data-en="CA Intermediate Free Test" data-hi="CA Intermediate निःशुल्क टेस्ट">CA Intermediate Free Test</h3>
+                        <h3>CA Intermediate Free Test</h3>
                     </div>
                     <div class="test-card-body">
-                        <p data-en="Free 45-min Practice Test" data-hi="निःशुल्क 45-मिनट का अभ्यास टेस्ट">Free 45-min Practice Test</p>
+                        <p>Free 45-min Practice Test</p>
                         <ul>
-                            <li data-en="25 MCQs & Case Studies" data-hi="25 MCQs और केस स्टडी">25 MCQs & Case Studies</li>
-                            <li data-en="Subject: Taxation" data-hi="विषय: कराधान">Subject: Taxation</li>
-                            <li data-en="Detailed Answer Key" data-hi="विस्तृत उत्तर कुंजी">Detailed Answer Key</li>
+                            <li>25 MCQs & Case Studies</li>
+                            <li>Subject: Taxation</li>
+                            <li>Detailed Answer Key</li>
                         </ul>
                     </div>
                     <div class="test-card-footer">
-                        <button class="btn btn-primary open-free-test-modal" data-en="Start Free Test" data-hi="फ्री टेस्ट शुरू करें">Start Free Test</button>
+                        <button class="btn btn-primary open-free-test-modal">Start Free Test</button>
                     </div>
                 </div>
 
                 <div class="test-card">
                     <div class="test-card-header">
-                        <h3 data-en="CA Final Free Test" data-hi="CA Final निःशुल्क टेस्ट">CA Final Free Test</h3>
+                        <h3>CA Final Free Test</h3>
                     </div>
                     <div class="test-card-body">
-                        <p data-en="Free 60-min Practice Test" data-hi="निःशुल्क 60-मिनट का अभ्यास टेस्ट">Free 60-min Practice Test</p>
+                        <p>Free 60-min Practice Test</p>
                         <ul>
-                            <li data-en="25 Complex MCQs" data-hi="25 जटिल MCQs">25 Complex MCQs</li>
-                            <li data-en="Subject: Strategic Financial Management" data-hi="विषय: रणनीतिक वित्तीय प्रबंधन">Subject: Strategic Financial Management</li>
-                            <li data-en="Advanced Performance Analytics" data-hi="उन्नत प्रदर्शन विश्लेषण">Advanced Performance Analytics</li>
+                            <li>25 Complex MCQs</li>
+                            <li>Subject: Strategic Financial Management</li>
+                            <li>Advanced Performance Analytics</li>
                         </ul>
                     </div>
                     <div class="test-card-footer">
-                        <button class="btn btn-primary open-free-test-modal" data-en="Start Free Test" data-hi="फ्री टेस्ट शुरू करें">Start Free Test</button>
+                        <button class="btn btn-primary open-free-test-modal">Start Free Test</button>
                     </div>
                 </div>
             </div>
@@ -877,10 +969,10 @@
                 <div class="coupon-content">
                     <span class="coupon-icon"><i class="fas fa-gift"></i></span>
                     <div class="coupon-text">
-                        <h4 data-en="Special Limited Time Offer!" data-hi="विशेष सीमित समय ऑफर!">Special Limited Time Offer!</h4>
-                        <p data-en="Use code " data-hi="कोड का उपयोग करें">Use code <strong class="coupon-code">SAVE100</strong> <span data-en="to get ₹100 off on any paid plan." data-hi="किसी भी पेड प्लान पर ₹100 की छूट पाने के लिए।">to get ₹100 off on any paid plan.</span></p>
+                        <h4>Special Limited Time Offer!</h4>
+                        <p>Use code <strong class="coupon-code">SAVE100</strong> to get ₹100 off on any paid plan.</p>
                     </div>
-                    <button class="btn btn-outline copy-coupon-btn" id="horizontalCouponBtn" data-en="Copy Code" data-hi="कोड कॉपी करें">Copy Code</button>
+                    <button class="btn btn-outline" id="horizontalCouponBtn">Copy Code</button>
                 </div>
             </div>
         </div>
@@ -888,50 +980,50 @@
 
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title" data-en="Why Choose Our CA Test Series?" data-hi="हमारी CA टेस्ट सीरीज क्यों चुनें?">Why Choose Our CA Test Series?</h2>
-            <p class="section-subtitle" data-en="Our comprehensive approach to CA exam preparation sets us apart from other test series providers." data-hi="CA परीक्षा की तैयारी के लिए हमारा व्यापक दृष्टिकोण हमें अन्य टेस्ट सीरीज प्रदाताओं से अलग करता है।">Our comprehensive approach to CA exam preparation sets us apart from other test series providers.</p>
+            <h2 class="section-title">Why Choose Our CA Test Series?</h2>
+            <p class="section-subtitle">Our comprehensive approach to CA exam preparation sets us apart from other test series providers.</p>
             <div class="features-grid">
                 <div class="feature-item">
                     <div class="feature-icon">
                         <i class="fas fa-file-alt"></i>
                     </div>
-                    <h3 data-en="Exam-Pattern Tests" data-hi="एग्जाम-पैटर्न टेस्ट">Exam-Pattern Tests</h3>
-                    <p data-en="Tests are designed by experienced CAs based on the latest ICAI pattern, difficulty level, and marking scheme. Our questions match the standard and complexity of actual CA exams." data-hi="टेस्ट अनुभवी CAs द्वारा नवीनतम ICAI पैटर्न, कठिनाई स्तर और मार्किंग स्कीम के आधार पर डिज़ाइन किए गए हैं। हमारे प्रश्न वास्तविक CA परीक्षाओं के मानक और जटिलता से मेल खाते हैं।">Tests are designed by experienced CAs based on the latest ICAI pattern, difficulty level, and marking scheme. Our questions match the standard and complexity of actual CA exams.</p>
+                    <h3>Exam-Pattern Tests</h3>
+                    <p>Tests are designed by experienced CAs based on the latest ICAI pattern, difficulty level, and marking scheme. Our questions match the standard and complexity of actual CA exams.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">
                         <i class="fas fa-scroll"></i>
                     </div>
-                    <h3 data-en="Detailed Solutions" data-hi="विस्तृत समाधान">Detailed Solutions</h3>
-                    <p data-en="Get detailed, step-by-step solutions for every question to understand your mistakes. Our solutions include expert tips, alternative approaches, and common pitfalls to avoid." data-hi="हर प्रश्न के लिए विस्तृत, चरण-दर-चरण समाधान प्राप्त करें ताकि आप अपनी गलतियों को समझ सकें। हमारे समाधानों में विशेषज्ञ युक्तियाँ, वैकल्पिक दृष्टिकोण और avoid करने के लिए common pitfalls शामिल हैं।">Get detailed, step-by-step solutions for every question to understand your mistakes. Our solutions include expert tips, alternative approaches and common pitfalls to avoid.</p>
+                    <h3>Detailed Solutions</h3>
+                    <p>Get detailed, step-by-step solutions for every question to understand your mistakes. Our solutions include expert tips, alternative approaches, and common pitfalls to avoid.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">
                         <i class="fas fa-chart-pie"></i>
                     </div>
-                    <h3 data-en="Performance Analytics" data-hi="प्रदर्शन विश्लेषण">Performance Analytics</h3>
-                    <p data-en="In-depth analysis of your strength, weakness, speed, and accuracy with graphical reports. Track your progress over time and identify areas that need improvement." data-hi="ग्राफिकल रिपोर्ट के साथ आपकी ताकत, कमजोरी, गति और सटीकता का गहन विश्लेषण। समय के साथ अपनी प्रगति को ट्रैक करें और सुधार की आवश्यकता वाले क्षेत्रों की पहचान करें।">In-depth analysis of your strength, weakness, speed, and accuracy with graphical reports. Track your progress over time and identify areas that need improvement.</p>
+                    <h3>Performance Analytics</h3>
+                    <p>In-depth analysis of your strength, weakness, speed, and accuracy with graphical reports. Track your progress over time and identify areas that need improvement.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">
                         <i class="fas fa-ranking-star"></i>
                     </div>
-                    <h3 data-en="All India Ranking" data-hi="ऑल इंडिया रैंकिंग">All India Ranking</h3>
-                    <p data-en="Compete with thousands of aspirants across India and know where you stand. Our ranking system helps you benchmark your performance against the national average." data-hi="भारत भर के हजारों अभ्यर्थियों के साथ प्रतिस्पर्धा करें और जानें कि आप कहाँ खड़े हैं। हमारी रैंकिंग प्रणाली आपको राष्ट्रीय औसत के विरुद्ध अपने प्रदर्शन को benchmark करने में मदद करती है।">Compete with thousands of aspirants across India and know where you stand. Our ranking system helps you benchmark your performance against the national average.</p>
+                    <h3>All India Ranking</h3>
+                    <p>Compete with thousands of aspirants across India and know where you stand. Our ranking system helps you benchmark your performance against the national average.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3 data-en="Mobile App Access" data-hi="मोबाइल ऐप एक्सेस">Mobile App Access</h3>
-                    <p data-en="Access your tests, solutions, and analytics on the go with our mobile app. Study anytime, anywhere with full functionality across all devices." data-hi="हमारे मोबाइल ऐप के साथ चलते-फिरते अपने टेस्ट, समाधान और analytics तक पहुँचें। सभी उपकरणों पर पूर्ण functionality के साथ कभी भी, कहीं भी अध्ययन करें।">Access your tests, solutions, and analytics on the go with our mobile app. Study anytime, anywhere with full functionality across all devices.</p>
+                    <h3>Mobile App Access</h3>
+                    <p>Access your tests, solutions, and analytics on the go with our mobile app. Study anytime, anywhere with full functionality across all devices.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">
                         <i class="fas fa-headset"></i>
                     </div>
-                    <h3 data-en="Expert Support" data-hi="विशेषज्ञ सहायता">Expert Support</h3>
-                    <p data-en="Get personalized feedback and doubt resolution from experienced CAs. Our support team is available to help you with technical issues and content-related queries." data-hi="अनुभवी CAs से व्यक्तिगत feedback और doubt resolution प्राप्त करें। तकनीकी मुद्दों और content-related queries में आपकी मदद करने के लिए हमारी support team उपलब्ध है।">Get personalized feedback and doubt resolution from experienced CAs. Our support team is available to help you with technical issues and content-related queries.</p>
+                    <h3>Expert Support</h3>
+                    <p>Get personalized feedback and doubt resolution from experienced CAs. Our support team is available to help you with technical issues and content-related queries.</p>
                 </div>
             </div>
         </div>
@@ -939,52 +1031,52 @@
 
     <section id="pricing" class="pricing">
         <div class="container">
-            <h2 class="section-title" data-en="Affordable CA Test Series Plans" data-hi="किफायती CA टेस्ट सीरीज योजनाएँ">Affordable CA Test Series Plans</h2>
-            <p class="section-subtitle" data-en="Choose the plan that best suits your preparation needs. All plans come with detailed solutions and performance reports." data-hi="अपनी तैयारी की जरूरतों के अनुसार योजना चुनें। सभी योजनाएँ विस्तृत समाधान और प्रदर्शन रिपोर्ट के साथ आती हैं।">Choose the plan that best suits your preparation needs. All plans come with detailed solutions and performance reports.</p>
+            <h2 class="section-title">Affordable CA Test Series Plans</h2>
+            <p class="section-subtitle">Choose the plan that best suits your preparation needs. All plans come with detailed solutions and performance reports.</p>
 
             <div class="pricing-tabs">
-                <button class="pricing-tab active" data-target="foundation" data-en="CA Foundation" data-hi="CA Foundation">CA Foundation</button>
-                <button class="pricing-tab" data-target="intermediate" data-en="CA Intermediate" data-hi="CA Intermediate">CA Intermediate</button>
-                <button class="pricing-tab" data-target="final" data-en="CA Final" data-hi="CA Final">CA Final</button>
+                <button class="pricing-tab active" data-target="foundation">CA Foundation</button>
+                <button class="pricing-tab" data-target="intermediate">CA Intermediate</button>
+                <button class="pricing-tab" data-target="final">CA Final</button>
             </div>
 
             <div class="pricing-panels">
                 <div class="pricing-panel active" id="panel-foundation">
                     <div class="pricing-grid">
                         <div class="pricing-card">
-                            <h3 data-en="Free Pack" data-hi="फ्री पैक">Free Pack</h3>
-                            <div class="price"><span class="current" data-en="Free" data-hi="फ्री">Free</span></div>
+                            <h3>Free Pack</h3>
+                            <div class="price"><span class="current">Free</span></div>
                             <ul class="features">
-                                <li data-en="1 Subject-wise Paper" data-hi="1 विषयवार पेपर">1 Subject-wise Paper</li>
-                                <li data-en="No Paper Checking" data-hi="कोई पेपर जांच नहीं">No Paper Checking</li>
-                                <li data-en="No Detailed Marking" data-hi="कोई विस्तृत मार्किंग नहीं">No Detailed Marking</li>
-                                <li data-en="Basic Access" data-hi="बेसिक एक्सेस">Basic Access</li>
+                                <li>1 Subject-wise Paper</li>
+                                <li>No Paper Checking</li>
+                                <li>No Detailed Marking</li>
+                                <li>Basic Access</li>
                             </ul>
-                            <button class="btn btn-outline open-signup-modal" data-en="Sign Up for Free" data-hi="फ्री साइन अप">Sign Up for Free</button>
+                            <button class="btn btn-outline open-signup-modal">Sign Up for Free</button>
                         </div>
                         <div class="pricing-card highlight">
-                            <div class="badge" data-en="Most Popular" data-hi="सबसे लोकप्रिय">Most Popular</div>
-                            <h3 data-en="Silver Pack" data-hi="सिल्वर पैक">Silver Pack</h3>
+                            <div class="badge">Most Popular</div>
+                            <h3>Silver Pack</h3>
                             <div class="price"><span class="current">₹199</span> <span class="original">₹499</span></div>
                             <ul class="features">
-                                <li data-en="2 Full-length Tests" data-hi="2 फुल-लेंथ टेस्ट">2 Full-length Tests</li>
-                                <li data-en="Detailed Checking & Marking" data-hi="विस्तृत जांच और मार्किंग">Detailed Checking & Marking</li>
-                                <li data-en="All India Rank (AIR)" data-hi="ऑल इंडिया रैंक (AIR)">All India Rank (AIR)</li>
-                                <li data-en="Email Support" data-hi="ईमेल सहायता">Email Support</li>
+                                <li>2 Full-length Tests</li>
+                                <li>Detailed Checking & Marking</li>
+                                <li>All India Rank (AIR)</li>
+                                <li>Email Support</li>
                             </ul>
-                            <a class="btn btn-primary" href="checkout.html?plan=silver&level=foundation" data-en="Buy Now" data-hi="अभी खरीदें">Buy Now</a>
+                            <a class="btn btn-primary" href="checkout.html?plan=silver&level=foundation">Buy Now</a>
                         </div>
                         <div class="pricing-card">
-                            <h3 data-en="Gold Pack" data-hi="गोल्ड पैक">Gold Pack</h3>
+                            <h3>Gold Pack</h3>
                             <div class="price"><span class="current">₹999</span> <span class="original">₹1999</span></div>
                             <ul class="features">
-                                <li data-en="12 Full-length Tests" data-hi="12 फुल-लेंथ टेस्ट">12 Full-length Tests</li>
-                                <li data-en="(2 papers delivered per month)" data-hi="(प्रति माह 2 पेपर दिए जाते हैं)">(2 papers delivered per month)</li>
-                                <li data-en="Detailed Video Solutions" data-hi="विस्तृत वीडियो समाधान">Detailed Video Solutions</li>
-                                <li data-en="Personalized Feedback from CAs" data-hi="CAs से व्यक्तिगत feedback">Personalized Feedback from CAs</li>
-                                <li data-en="Priority Support" data-hi="प्राथमिकता सहायता">Priority Support</li>
+                                <li>12 Full-length Tests</li>
+                                <li>(2 papers delivered per month)</li>
+                                <li>Detailed Video Solutions</li>
+                                <li>Personalized Feedback from CAs</li>
+                                <li>Priority Support</li>
                             </ul>
-                            <a class="btn btn-primary" href="checkout.html?plan=gold&level=foundation" data-en="Buy Now" data-hi="अभी खरीदें">Buy Now</a>
+                            <a class="btn btn-primary" href="checkout.html?plan=gold&level=foundation">Buy Now</a>
                         </div>
                     </div>
                 </div>
@@ -992,38 +1084,38 @@
                 <div class="pricing-panel" id="panel-intermediate">
                     <div class="pricing-grid">
                         <div class="pricing-card">
-                            <h3 data-en="Free Pack" data-hi="फ्री पैक">Free Pack</h3>
-                            <div class="price"><span class="current" data-en="Free" data-hi="फ्री">Free</span></div>
+                            <h3>Free Pack</h3>
+                            <div class="price"><span class="current">Free</span></div>
                             <ul class="features">
-                                <li data-en="1 Subject-wise Paper" data-hi="1 विषयवार पेपर">1 Subject-wise Paper</li>
-                                <li data-en="No Paper Checking" data-hi="कोई पेपर जांच नहीं">No Paper Checking</li>
-                                <li data-en="Basic Access" data-hi="बेसिक एक्सेस">Basic Access</li>
+                                <li>1 Subject-wise Paper</li>
+                                <li>No Paper Checking</li>
+                                <li>Basic Access</li>
                             </ul>
-                            <button class="btn btn-outline open-signup-modal" data-en="Sign Up for Free" data-hi="फ्री साइन अप">Sign Up for Free</button>
+                            <button class="btn btn-outline open-signup-modal">Sign Up for Free</button>
                         </div>
                         <div class="pricing-card highlight">
-                            <div class="badge" data-en="Most Popular" data-hi="सबसे लोकप्रिय">Most Popular</div>
-                            <h3 data-en="Silver Pack" data-hi="सिल्वर पैक">Silver Pack</h3>
+                            <div class="badge">Most Popular</div>
+                            <h3>Silver Pack</h3>
                             <div class="price"><span class="current">₹199</span> <span class="original">₹499</span></div>
                             <ul class="features">
-                               <li data-en="2 Full-length Tests" data-hi="2 फुल-लेंथ टेस्ट">2 Full-length Tests</li>
-                                <li data-en="Detailed Checking & Marking" data-hi="विस्तृत जांच और मार्किंग">Detailed Checking & Marking</li>
-                                <li data-en="All India Rank (AIR)" data-hi="ऑल इंडिया रैंक (AIR)">All India Rank (AIR)</li>
-                                <li data-en="Email Support" data-hi="ईमेल सहायता">Email Support</li>
+                               <li>2 Full-length Tests</li>
+                                <li>Detailed Checking & Marking</li>
+                                <li>All India Rank (AIR)</li>
+                                <li>Email Support</li>
                             </ul>
-                            <a class="btn btn-primary" href="checkout.html?plan=silver&level=intermediate" data-en="Buy Now" data-hi="अभी खरीदें">Buy Now</a>
+                            <a class="btn btn-primary" href="checkout.html?plan=silver&level=intermediate">Buy Now</a>
                         </div>
                         <div class="pricing-card">
-                            <h3 data-en="Gold Pack" data-hi="गोल्ड पैक">Gold Pack</h3>
+                            <h3>Gold Pack</h3>
                             <div class="price"><span class="current">₹999</span> <span class="original">₹1999</span></div>
                             <ul class="features">
-                                <li data-en="12 Full-length Tests" data-hi="12 फुल-लेंथ टेस्ट">12 Full-length Tests</li>
-                                <li data-en="(2 papers delivered per month)" data-hi="(प्रति माह 2 पेपर दिए जाते हैं)">(2 papers delivered per month)</li>
-                                <li data-en="Detailed Video Solutions" data-hi="विस्तृत वीडियो समाधान">Detailed Video Solutions</li>
-                                <li data-en="Personalized Feedback from CAs" data-hi="CAs से व्यक्तिगत feedback">Personalized Feedback from CAs</li>
-                                <li data-en="Priority Support" data-hi="प्राथमिकता सहायता">Priority Support</li>
+                                <li>12 Full-length Tests</li>
+                                <li>(2 papers delivered per month)</li>
+                                <li>Detailed Video Solutions</li>
+                                <li>Personalized Feedback from CAs</li>
+                                <li>Priority Support</li>
                             </ul>
-                            <a class="btn btn-primary" href="checkout.html?plan=gold&level=intermediate" data-en="Buy Now" data-hi="अभी खरीदें">Buy Now</a>
+                            <a class="btn btn-primary" href="checkout.html?plan=gold&level=intermediate">Buy Now</a>
                         </div>
                     </div>
                 </div>
@@ -1031,38 +1123,38 @@
                 <div class="pricing-panel" id="panel-final">
                     <div class="pricing-grid">
                         <div class="pricing-card">
-                            <h3 data-en="Free Pack" data-hi="फ्री पैक">Free Pack</h3>
-                            <div class="price"><span class="current" data-en="Free" data-hi="फ्री">Free</span></div>
+                            <h3>Free Pack</h3>
+                            <div class="price"><span class="current">Free</span></div>
                             <ul class="features">
-                                <li data-en="1 Subject-wise Paper" data-hi="1 विषयवार पेपर">1 Subject-wise Paper</li>
-                                <li data-en="No Paper Checking" data-hi="कोई पेपर जांच नहीं">No Paper Checking</li>
-                                <li data-en="Basic Access" data-hi="बेसिक एक्सेस">Basic Access</li>
+                                <li>1 Subject-wise Paper</li>
+                                <li>No Paper Checking</li>
+                                <li>Basic Access</li>
                             </ul>
-                            <button class="btn btn-outline open-signup-modal" data-en="Sign Up for Free" data-hi="फ्री साइन अप">Sign Up for Free</button>
+                            <button class="btn btn-outline open-signup-modal">Sign Up for Free</button>
                         </div>
                         <div class="pricing-card highlight">
-                            <div class="badge" data-en="Most Popular" data-hi="सबसे लोकप्रिय">Most Popular</div>
-                            <h3 data-en="Silver Pack" data-hi="सिल्वर पैक">Silver Pack</h3>
+                            <div class="badge">Most Popular</div>
+                            <h3>Silver Pack</h3>
                             <div class="price"><span class="current">₹199</span> <span class="original">₹499</span></div>
                             <ul class="features">
-                                <li data-en="2 Full-length Tests" data-hi="2 फुल-लेंथ टेस्ट">2 Full-length Tests</li>
-                                <li data-en="Detailed Checking & Marking" data-hi="विस्तृत जांच और मार्किंग">Detailed Checking & Marking</li>
-                                <li data-en="All India Rank (AIR)" data-hi="ऑल इंडिया रैंक (AIR)">All India Rank (AIR)</li>
-                                <li data-en="Email Support" data-hi="ईमेल सहायता">Email Support</li>
+                                <li>2 Full-length Tests</li>
+                                <li>Detailed Checking & Marking</li>
+                                <li>All India Rank (AIR)</li>
+                                <li>Email Support</li>
                             </ul>
-                            <a class="btn btn-primary" href="checkout.html?plan=silver&level=final" data-en="Buy Now" data-hi="अभी खरीदें">Buy Now</a>
+                            <a class="btn btn-primary" href="checkout.html?plan=silver&level=final">Buy Now</a>
                         </div>
                         <div class="pricing-card">
-                            <h3 data-en="Gold Pack" data-hi="गोल्ड पैक">Gold Pack</h3>
+                            <h3>Gold Pack</h3>
                             <div class="price"><span class="current">₹999</span> <span class="original">₹1999</span></div>
                             <ul class="features">
-                                <li data-en="12 Full-length Tests" data-hi="12 फुल-लेंथ टेस्ट">12 Full-length Tests</li>
-                                <li data-en="(2 papers delivered per month)" data-hi="(प्रति माह 2 पेपर दिए जाते हैं)">(2 papers delivered per month)</li>
-                                <li data-en="Detailed Video Solutions" data-hi="विस्तृत वीडियो समाधान">Detailed Video Solutions</li>
-                                <li data-en="Personalized Feedback from CAs" data-hi="CAs से व्यक्तिगत feedback">Personalized Feedback from CAs</li>
-                                <li data-en="Priority Support" data-hi="प्राथमिकता सहायता">Priority Support</li>
+                                <li>12 Full-length Tests</li>
+                                <li>(2 papers delivered per month)</li>
+                                <li>Detailed Video Solutions</li>
+                                <li>Personalized Feedback from CAs</li>
+                                <li>Priority Support</li>
                             </ul>
-                            <a class="btn btn-primary" href="checkout.html?plan=gold&level=final" data-en="Buy Now" data-hi="अभी खरीदें">Buy Now</a>
+                            <a class="btn btn-primary" href="checkout.html?plan=gold&level=final">Buy Now</a>
                         </div>
                     </div>
                 </div>
@@ -1072,25 +1164,25 @@
 
     <section id="results" class="results">
         <div class="container">
-            <h2 class="section-title" data-en="Results & Student Success Stories" data-hi="परिणाम और छात्र सफलता की कहानियाँ">Results & Student Success Stories</h2>
-            <p class="section-subtitle" data-en="See how our CA Test Series has helped thousands of students achieve their goals and top the CA exams." data-hi="देखें कि कैसे हमारी CA टेस्ट सीरीज ने हजारों छात्रों को उनके लक्ष्यों को प्राप्त करने और CA परीक्षाओं में टॉप करने में मदद की है।">See how our CA Test Series has helped thousands of students achieve their goals and top the CA exams.</p>
+            <h2 class="section-title">Results & Student Success Stories</h2>
+            <p class="section-subtitle">See how our CA Test Series has helped thousands of students achieve their goals and top the CA exams.</p>
             
             <div class="stats-grid">
                 <div class="stat-item">
                     <div class="stat-number">10,000+</div>
-                    <div class="stat-label" data-en="Students Enrolled" data-hi="छात्र नामांकित">Students Enrolled</div>
+                    <div class="stat-label">Students Enrolled</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">95%</div>
-                    <div class="stat-label" data-en="Success Rate" data-hi="सफलता दर">Success Rate</div>
+                    <div class="stat-label">Success Rate</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">250+</div>
-                    <div class="stat-label" data-en="AIR Achieved" data-hi="AIR प्राप्त">AIR Achieved</div>
+                    <div class="stat-label">AIR Achieved</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">98%</div>
-                    <div class="stat-label" data-en="Satisfaction Rate" data-hi="संतुष्टि दर">Satisfaction Rate</div>
+                    <div class="stat-label">Satisfaction Rate</div>
                 </div>
             </div>
 
@@ -1098,11 +1190,11 @@
                 <div class="testimonial-slide active">
                     <div class="testimonial-content">
                         <div class="testimonial-text">
-                            <p data-en="The detailed solutions in the CA Foundation test series helped me understand concepts I had been struggling with for months. The All India Rank was a great motivator! I secured AIR 42 in my first attempt." data-hi="CA Foundation टेस्ट सीरीज के विस्तृत समाधानों ने मुझे उन अवधारणाओं को समझने में मदद की जिनसे मैं महीनों से संघर्ष कर रहा था। ऑल इंडिया रैंक एक शानदार प्रेरक था! मैंने अपने पहले प्रयास में AIR 42 सुरक्षित किया।">"The detailed solutions in the CA Foundation test series helped me understand concepts I had been struggling with for months. The All India Rank was a great motivator! I secured AIR 42 in my first attempt."</p>
+                            <p>"The detailed solutions in the CA Foundation test series helped me understand concepts I had been struggling with for months. The All India Rank was a great motivator! I secured AIR 42 in my first attempt."</p>
                         </div>
                         <div class="testimonial-author">
                             <h4>Priya Sharma</h4>
-                            <span data-en="CA Foundation, AIR 42" data-hi="CA Foundation, AIR 42">CA Foundation, AIR 42</span>
+                            <span>CA Foundation, AIR 42</span>
                         </div>
                     </div>
                 </div>
@@ -1140,9 +1232,9 @@
     <section id="cta" class="cta">
         <div class="container">
             <div class="cta-content">
-                <h2 data-en="Ready to Top Your CA Exams?" data-hi="अपनी CA परीक्षाओं में टॉप करने के लिए तैयार?">Ready to Top Your CA Exams?</h2>
-                <p data-en="Join thousands of successful CA students who achieved their dreams with our test series. Get started today with our affordable plans." data-hi="हजारों सफल CA छात्रों में शामिल हों जिन्होंने हमारी टेस्ट सीरीज के साथ अपने सपनों को प्राप्त किया। हमारी किफायती योजनाओं के साथ आज ही शुरुआत करें।">Join thousands of successful CA students who achieved their dreams with our test series. Get started today with our affordable plans.</p>
-                <a href="#pricing" class="btn btn-primary btn-large" data-en="Choose Your Plan" data-hi="अपनी योजना चुनें">Choose Your Plan</a>
+                <h2>Ready to Top Your CA Exams?</h2>
+                <p>Join thousands of successful CA students who achieved their dreams with our test series. Get started today with our affordable plans.</p>
+                <a href="#pricing" class="btn btn-primary btn-large">Choose Your Plan</a>
             </div>
         </div>
     </section>
@@ -1152,21 +1244,21 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <div class="footer-logo">
-                        <img src="logo.png" alt="caexam" class="logo">
-                        <p data-en="India's leading CA Test Series platform offering exam-pattern mock tests, detailed solutions, performance analytics, and All India Ranking. Trusted by 25,000+ CA aspirants across India." data-hi="भारत का अग्रणी CA टेस्ट सीरीज प्लेटफॉर्म जो परीक्षा-पैटर्न मॉक टेस्ट, विस्तृत समाधान, प्रदर्शन विश्लेषण और ऑल इंडिया रैंकिंग प्रदान करता है। पूरे भारत में 25,000+ CA उम्मीदवारों द्वारा विश्वसनीय।">India's leading CA Test Series platform offering exam-pattern mock tests, detailed solutions, performance analytics, and All India Ranking. Trusted by 25,000+ CA aspirants across India.</p>
+                        <img src="https://via.placeholder.com/150x50/2563eb/ffffff?text=CAExam" alt="caexam" class="logo">
+                        <p>India's leading CA Test Series platform offering exam-pattern mock tests, detailed solutions, performance analytics, and All India Ranking. Trusted by 25,000+ CA aspirants across India.</p>
                     </div>
                 </div>
                 <div class="footer-column">
-                    <h4 data-en="Quick Links" data-hi="त्वरित लिंक">Quick Links</h4>
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#home" data-en="Home" data-hi="होम">Home</a></li>
-                        <li><a href="#test-series" data-en="Test Series" data-hi="टेस्ट सीरीज">Test Series</a></li>
-                        <li><a href="#pricing" data-en="Pricing" data-hi="मूल्य">Pricing</a></li>
-                        <li><a href="#free-tests" data-en="Free Tests" data-hi="फ्री टेस्ट">Free Tests</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#test-series">Test Series</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#free-tests">Free Tests</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4 data-en="Contact Info" data-hi="संपर्क जानकारी">Contact Info</h4>
+                    <h4>Contact Info</h4>
                     <div class="contact-info">
                         <p><i class="fas fa-map-marker-alt"></i> CA Excellence Center New Delhi 110001</p>
                         <p><i class="fas fa-phone"></i> +91 98765 43210</p>
@@ -1174,11 +1266,11 @@
                     </div>
                 </div>
                  <div class="footer-column">
-                    <h4 data-en="Newsletter" data-hi="न्यूज़लेटर">Newsletter</h4>
-                    <p data-en="Subscribe to get updates on new test series, offers, and CA exam tips." data-hi="नई टेस्ट सीरीज, ऑफers और CA परीक्षा युक्तियों पर अपडेट प्राप्त करने के लिए सब्सक्राइब करें।">Subscribe to get updates on new test series, offers, and CA exam tips.</p>
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to get updates on new test series, offers, and CA exam tips.</p>
                     <form class="newsletter-form" name="newsletter">
                         <input type="email" name="email" placeholder="Enter your email" required>
-                        <button type="submit" data-en="Subscribe" data-hi="सब्सक्राइब">Subscribe</button>
+                        <button type="submit">Subscribe</button>
                     </form>
                 </div>
             </div>
@@ -1192,49 +1284,49 @@
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 data-en="Login / Register" data-hi="लॉगिन / रजिस्टर">Login / Register</h2>
+                <h2>Login / Register</h2>
                 <span class="close" id="closeModal">&times;</span>
             </div>
             <div class="modal-body">
                 <div class="tab-container">
                     <div class="tab-buttons">
-                        <button class="tab-btn active" data-tab="login" data-en="Login" data-hi="लॉगिन">Login</button>
-                        <button class="tab-btn" data-tab="register" data-en="Register" data-hi="रजिस्टर">Register</button>
+                        <button class="tab-btn active" data-tab="login">Login</button>
+                        <button class="tab-btn" data-tab="register">Register</button>
                     </div>
                     
                     <div id="login" class="tab-content active">
                         <form class="auth-form" id="loginForm">
                             <div class="form-group">
-                                <label for="loginEmail" data-en="Email/Username" data-hi="ईमेल/उपयोगकर्ता नाम">Email/Username</label>
+                                <label for="loginEmail">Email/Username</label>
                                 <input type="text" id="loginEmail" required>
                             </div>
                             <div class="form-group">
-                                <label for="loginPassword" data-en="Password" data-hi="पासवर्ड">Password</label>
+                                <label for="loginPassword">Password</label>
                                 <input type="password" id="loginPassword" required>
                             </div>
-                            <button type="submit" class="btn btn-primary" data-en="Login" data-hi="लॉगिन">Login</button>
+                            <button type="submit" class="btn btn-primary">Login</button>
                         </form>
                     </div>
                     
                     <div id="register" class="tab-content">
                         <form class="auth-form" id="registerForm">
                             <div class="form-group">
-                                <label for="regName" data-en="Full Name" data-hi="पूरा नाम">Full Name</label>
+                                <label for="regName">Full Name</label>
                                 <input type="text" id="regName" required>
                             </div>
                             <div class="form-group">
-                                <label for="regEmail" data-en="Email" data-hi="ईमेल">Email</label>
+                                <label for="regEmail">Email</label>
                                 <input type="email" id="regEmail" required>
                             </div>
                             <div class="form-group">
-                                <label for="regMobile" data-en="Mobile Number" data-hi="मोबाइल नंबर">Mobile Number</label>
+                                <label for="regMobile">Mobile Number</label>
                                 <input type="tel" id="regMobile" pattern="[0-9]{10}" placeholder="10-digit mobile number" required>
                             </div>
                             <div class="form-group">
-                                <label for="regPassword" data-en="Password" data-hi="पासवर्ड">Password</label>
+                                <label for="regPassword">Password</label>
                                 <input type="password" id="regPassword" required>
                             </div>
-                            <button type="submit" class="btn btn-primary" data-en="Register" data-hi="रजिस्टर">Register</button>
+                            <button type="submit" class="btn btn-primary">Register</button>
                         </form>
                     </div>
                 </div>
@@ -1681,7 +1773,7 @@
             }
         });
     </script>
-</body>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7459160768548706"
      crossorigin="anonymous"></script>
+</body>
 </html>

@@ -10,7 +10,734 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-logo img {
+            height: 40px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #4a6cf7;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .language-switcher select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .login-btn {
+            background: #4a6cf7;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #4a6cf7 0%, #2b4fcc 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #4a6cf7;
+        }
+
+        .btn-primary:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #4a6cf7;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            color: #666;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: #4a6cf7;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        /* Free Tests Section */
+        .free-tests {
+            padding: 80px 0;
+        }
+
+        .test-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .test-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .test-card-header {
+            background: #4a6cf7;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .test-card-body {
+            padding: 20px;
+        }
+
+        .test-card-body p {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .test-card-body ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .test-card-body li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .test-card-footer {
+            padding: 20px;
+            text-align: center;
+            background: #f8f9fa;
+        }
+
+        /* Coupon Banner */
+        .coupon-banner-horizontal {
+            background: linear-gradient(135deg, #4a6cf7 0%, #2b4fcc 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .coupon-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .coupon-icon {
+            font-size: 2rem;
+        }
+
+        .coupon-code {
+            background: white;
+            color: #4a6cf7;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #4a6cf7;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+        }
+
+        .pricing-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .pricing-tab {
+            padding: 10px 20px;
+            background: #eee;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pricing-tab.active {
+            background: #4a6cf7;
+            color: white;
+        }
+
+        .pricing-panel {
+            display: none;
+        }
+
+        .pricing-panel.active {
+            display: block;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card.highlight {
+            border: 2px solid #4a6cf7;
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .price {
+            margin: 20px 0;
+        }
+
+        .current {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4a6cf7;
+        }
+
+        .original {
+            text-decoration: line-through;
+            color: #999;
+            margin-left: 10px;
+        }
+
+        .features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Results Section */
+        .results {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4a6cf7;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-slide {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-slide.active {
+            display: block;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author h4 {
+            margin-bottom: 5px;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #4a6cf7;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #4a6cf7 0%, #2b4fcc 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-large {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .newsletter-form button {
+            background: #4a6cf7;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #3a4a5e;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .tab-container {
+            margin-top: 20px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab-btn.active {
+            border-bottom-color: #4a6cf7;
+            color: #4a6cf7;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .services-grid, .test-cards, .features-grid, .pricing-grid, .stats-grid, .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.highlight {
+                transform: scale(1);
+            }
+
+            .coupon-banner-horizontal {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar" id="navbar">
@@ -47,7 +774,7 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h1 class="hero-title" data-en="Ace Your CA Exams with India's Best Test Series" data-hi="भारत की सर्वश्रेष्ठ टेस्ट सीरीज के साथ अपनी CA परीक्षाओं में टॉप करें">Ace Your CA Exams with India's Best Test Series</h1>
-            <p class="hero-subtitle" data-en="Get access to high-quality, exam-pattern mock tests for CA Foundation, Intermediate, and Final. Detailed performance analysis, video solutions, and All India Rank included. Join 25,000+ successful CA students who achieved their goals with our test series." data-hi="CA Foundation, Intermediate और Final के लिए उच्च-गुणवत्ता, परीक्षा-पैटर्न मॉक टेस्ट तक पहुँचें। विस्तृत प्रदर्शन विश्लेषण, वीडियो समाधान और ऑल इंडिया रैंक शामिल। 25,000+ सफल CA छात्रों में शामिल हों जिन्होंने हमारी टेस्ट सीरीज के साथ अपने लक्ष्यों को प्राप्त किया।">Get access to high-quality, exam-pattern mock tests for CA Foundation, Intermediate, and Final. Detailed performance analysis, video solutions, and All India Rank included. Join 25,000+ successful CA students who achieved their goals with our test series.</p>
+            <p class="hero-subtitle" data-en="Get access to high-quality, exam-pattern mock tests for CA Foundation, Intermediate, and Final. Detailed performance analysis, video solutions, and All India Rank included. Join 25,000+ successful CA students who achieved their goals with our test series." data-hi="CA Foundation, Intermediate और Final के लिए उच्च-गुणवत्ता, परीक्षा-पैटर्न मॉक टेस्ट तक पहुँचें। विस्तृत प्रदर्शन विश्लेषण, वीडियो समाधान और ऑल इंडिया रैंक शामिल। 25,000+ सफल CA छात्रों में शामिल हों जिन्होंने हमारी टे스्ट सीरीज के साथ अपने लक्ष्यों को प्राप्त किया।">Get access to high-quality, exam-pattern mock tests for CA Foundation, Intermediate, and Final. Detailed performance analysis, video solutions, and All India Rank included. Join 25,000+ successful CA students who achieved their goals with our test series.</p>
             <div class="hero-buttons">
                 <a href="#pricing" class="btn btn-primary" data-en="Browse Test Series" data-hi="टेस्ट सीरीज देखें">Browse Test Series</a>
                 <a href="#free-tests" class="btn btn-outline" data-en="Try Free Test" data-hi="फ्री टेस्ट आज़माएं">Try Free Test</a>
@@ -91,7 +818,7 @@
     <section id="free-tests" class="free-tests">
         <div class="container">
             <h2 class="section-title" data-en="Try Our Free CA Test Series" data-hi="हमारी निःशुल्क CA टेस्ट सीरीज आज़माएं">Try Our Free CA Test Series</h2>
-            <p class="section-subtitle" data-en="Experience our platform quality with free objective-type tests. Each test contains 25 questions with instant results and detailed solutions." data-hi="निःशुल्क ऑब्जेक्टिव-टाइप टेस्ट के साथ हमारे प्लेटफ़ॉर्म की गुणवत्ता का अनुभव करें। प्रत्येक टेस्ट में त्वरित परिणाम और विस्तृत समाधान के साथ 25 प्रश्न होते हैं।">Experience our platform quality with free objective-type tests. Each test contains 25 questions with instant results and detailed solutions.</p>
+            <p class="section-subtitle" data-en="Experience our platform quality with free objective-type tests. Each test contains 25 questions with instant results and detailed solutions." data-hi="निःशुल्क ऑब्जेक्टिव-टाइप टेス्ट के साथ हमारे प्लेटफ़ॉर्म की गुणवत्ता का अनुभव करें। प्रत्येक टेस्ट में त्वरित परिणाम और विस्तृत समाधान के साथ 25 प्रश्न होते हैं।">Experience our platform quality with free objective-type tests. Each test contains 25 questions with instant results and detailed solutions.</p>
 
             <div class="test-cards">
                 <div class="test-card">
@@ -176,7 +903,7 @@
                         <i class="fas fa-scroll"></i>
                     </div>
                     <h3 data-en="Detailed Solutions" data-hi="विस्तृत समाधान">Detailed Solutions</h3>
-                    <p data-en="Get detailed, step-by-step solutions for every question to understand your mistakes. Our solutions include expert tips, alternative approaches, and common pitfalls to avoid." data-hi="हर प्रश्न के लिए विस्तृत, चरण-दर-चरण समाधान प्राप्त करें ताकि आप अपनी गलतियों को समझ सकें। हमारे समाधानों में विशेषज्ञ युक्तियाँ, वैकल्पिक दृष्टिकोण और avoid करने के लिए common pitfalls शामिल हैं।">Get detailed, step-by-step solutions for every question to understand your mistakes. Our solutions include expert tips, alternative approaches, and common pitfalls to avoid.</p>
+                    <p data-en="Get detailed, step-by-step solutions for every question to understand your mistakes. Our solutions include expert tips, alternative approaches, and common pitfalls to avoid." data-hi="हर प्रश्न के लिए विस्तृत, चरण-दर-चरण समाधान प्राप्त करें ताकि आप अपनी गलतियों को समझ सकें। हमारे समाधानों में विशेषज्ञ युक्तियाँ, वैकल्पिक दृष्टिकोण और avoid करने के लिए common pitfalls शामिल हैं।">Get detailed, step-by-step solutions for every question to understand your mistakes. Our solutions include expert tips, alternative approaches and common pitfalls to avoid.</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">
@@ -233,7 +960,7 @@
                                 <li data-en="No Detailed Marking" data-hi="कोई विस्तृत मार्किंग नहीं">No Detailed Marking</li>
                                 <li data-en="Basic Access" data-hi="बेसिक एक्सेस">Basic Access</li>
                             </ul>
-                            <button class="btn btn-outline open-free-test-modal" data-en="Sign Up for Free" data-hi="फ्री साइन अप">Sign Up for Free</button>
+                            <button class="btn btn-outline open-signup-modal" data-en="Sign Up for Free" data-hi="फ्री साइन अप">Sign Up for Free</button>
                         </div>
                         <div class="pricing-card highlight">
                             <div class="badge" data-en="Most Popular" data-hi="सबसे लोकप्रिय">Most Popular</div>
@@ -272,7 +999,7 @@
                                 <li data-en="No Paper Checking" data-hi="कोई पेपर जांच नहीं">No Paper Checking</li>
                                 <li data-en="Basic Access" data-hi="बेसिक एक्सेस">Basic Access</li>
                             </ul>
-                            <button class="btn btn-outline open-free-test-modal" data-en="Sign Up for Free" data-hi="फ्री साइन अप">Sign Up for Free</button>
+                            <button class="btn btn-outline open-signup-modal" data-en="Sign Up for Free" data-hi="फ्री साइन अप">Sign Up for Free</button>
                         </div>
                         <div class="pricing-card highlight">
                             <div class="badge" data-en="Most Popular" data-hi="सबसे लोकप्रिय">Most Popular</div>
@@ -311,7 +1038,7 @@
                                 <li data-en="No Paper Checking" data-hi="कोई पेपर जांच नहीं">No Paper Checking</li>
                                 <li data-en="Basic Access" data-hi="बेसिक एक्सेस">Basic Access</li>
                             </ul>
-                            <button class="btn btn-outline open-free-test-modal" data-en="Sign Up for Free" data-hi="फ्री साइन अप">Sign Up for Free</button>
+                            <button class="btn btn-outline open-signup-modal" data-en="Sign Up for Free" data-hi="फ्री साइन अप">Sign Up for Free</button>
                         </div>
                         <div class="pricing-card highlight">
                             <div class="badge" data-en="Most Popular" data-hi="सबसे लोकप्रिय">Most Popular</div>
@@ -403,9 +1130,9 @@
                 </div>
             </div>
             <div class="testimonial-dots">
-                <span class="dot active" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
         </div>
     </section>
@@ -461,6 +1188,7 @@
         </div>
     </footer>
 
+    <!-- Login/Register Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -487,33 +1215,34 @@
                             <button type="submit" class="btn btn-primary" data-en="Login" data-hi="लॉगिन">Login</button>
                         </form>
                     </div>
-                     
-                   
-    <form class="auth-form" id="registerForm">
-        <div class="form-group">
-            <label for="regName" data-en="Full Name" data-hi="पूरा नाम">Full Name</label>
-            <input type="text" id="regName" required>
-        </div>
-        <div class="form-group">
-            <label for="regEmail" data-en="Email" data-hi="ईमेल">Email</label>
-            <input type="email" id="regEmail" required>
-        </div>
-        <div class="form-group">
-            <label for="regMobile" data-en="Mobile Number" data-hi="मोबाइल नंबर">Mobile Number</label>
-            <input type="tel" id="regMobile" pattern="[0-9]{10}" placeholder="10-digit mobile number" required>
-        </div>
-        <div class="form-group">
-            <label for="regPassword" data-en="Password" data-hi="पासवर्ड">Password</label>
-            <input type="password" id="regPassword" required>
-        </div>
-        <button type="submit" class="btn btn-primary" data-en="Register" data-hi="रजिस्टर">Register</button>
-    </form>
-</div>
+                    
+                    <div id="register" class="tab-content">
+                        <form class="auth-form" id="registerForm">
+                            <div class="form-group">
+                                <label for="regName" data-en="Full Name" data-hi="पूरा नाम">Full Name</label>
+                                <input type="text" id="regName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="regEmail" data-en="Email" data-hi="ईमेल">Email</label>
+                                <input type="email" id="regEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="regMobile" data-en="Mobile Number" data-hi="मोबाइल नंबर">Mobile Number</label>
+                                <input type="tel" id="regMobile" pattern="[0-9]{10}" placeholder="10-digit mobile number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="regPassword" data-en="Password" data-hi="पासवर्ड">Password</label>
+                                <input type="password" id="regPassword" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-en="Register" data-hi="रजिस्टर">Register</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Free Test Modal -->
     <div id="freeTestModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -521,11 +1250,19 @@
                 <span class="close" id="closeFreeTestModal">&times;</span>
             </div>
             <div class="modal-body">
-                <p>Please provide your Email or Mobile Number to start the download.</p>
+                <p>Please provide your details to start the download.</p>
                 <form class="auth-form" id="freeTestForm">
                     <div class="form-group">
-                        <label for="freeTestEmail">Email or Mobile Number</label>
-                        <input type="text" id="freeTestEmail" placeholder="Enter your email or mobile" required>
+                        <label for="freeTestName">Full Name</label>
+                        <input type="text" id="freeTestName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="freeTestEmail">Email</label>
+                        <input type="email" id="freeTestEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="freeTestMobile">Mobile Number</label>
+                        <input type="tel" id="freeTestMobile" pattern="[0-9]{10}" placeholder="10-digit mobile number" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Download Now</button>
                 </form>
@@ -533,7 +1270,416 @@
         </div>
     </div>
 
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sign Up for Free Access</h2>
+                <span class="close" id="closeSignupModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Create your free account to access our test series.</p>
+                <form class="auth-form" id="signupForm">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupMobile">Mobile Number</label>
+                        <input type="tel" id="signupMobile" pattern="[0-9]{10}" placeholder="10-digit mobile number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" placeholder="Create a password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Google Script URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyYkTDOtWlWSaAYUEGDGhnGkt-ubunZgo0WfkrbyNrfLmPUYy9LkP5TZqM9TtbhbXua/exec';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (hamburger && hamburger.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                });
+            });
+
+            // Modal Elements
+            const loginBtn = document.getElementById('loginBtn');
+            const loginModal = document.getElementById('loginModal');
+            const closeModal = document.getElementById('closeModal');
+            const freeTestModal = document.getElementById('freeTestModal');
+            const closeFreeTestModal = document.getElementById('closeFreeTestModal');
+            const signupModal = document.getElementById('signupModal');
+            const closeSignupModal = document.getElementById('closeSignupModal');
+
+            // Open Login Modal
+            if (loginBtn && loginModal) {
+                loginBtn.addEventListener('click', function() {
+                    loginModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            // Close Login Modal
+            if (closeModal && loginModal) {
+                closeModal.addEventListener('click', function() {
+                    loginModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            // Close Free Test Modal
+            if (closeFreeTestModal && freeTestModal) {
+                closeFreeTestModal.addEventListener('click', function() {
+                    freeTestModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            // Close Signup Modal
+            if (closeSignupModal && signupModal) {
+                closeSignupModal.addEventListener('click', function() {
+                    signupModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            // Close modals when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === loginModal) {
+                    loginModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                if (event.target === freeTestModal) {
+                    freeTestModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                if (event.target === signupModal) {
+                    signupModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Tab Switching in Login Modal
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tab = this.getAttribute('data-tab');
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    const targetTab = document.getElementById(tab);
+                    if (targetTab) targetTab.classList.add('active');
+                });
+            });
+
+            // Open Free Test Modal
+            const openFreeTestModalBtns = document.querySelectorAll('.open-free-test-modal');
+            openFreeTestModalBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    freeTestModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Open Signup Modal
+            const openSignupModalBtns = document.querySelectorAll('.open-signup-modal');
+            openSignupModalBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    signupModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Form Submissions
+            async function submitToGoogleSheet(formData, sheetName) {
+                try {
+                    const response = await fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            sheet: sheetName,
+                            formData: formData
+                        })
+                    });
+                    
+                    console.log(`Data submitted to ${sheetName} sheet`);
+                    return true;
+                } catch (error) {
+                    console.error('Error submitting data:', error);
+                    return false;
+                }
+            }
+
+            // Register Form Submission
+            const registerForm = document.getElementById('registerForm');
+            if (registerForm) {
+                registerForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('regName').value.trim();
+                    const email = document.getElementById('regEmail').value.trim();
+                    const mobile = document.getElementById('regMobile').value.trim();
+                    const password = document.getElementById('regPassword').value;
+                    
+                    if (!name || !email || !mobile || !password) {
+                        alert('Please fill in all fields.');
+                        return;
+                    }
+                    
+                    const formData = {
+                        Name: name,
+                        Email: email,
+                        Mobile: mobile
+                    };
+                    
+                    const success = await submitToGoogleSheet(formData, 'Registrations');
+                    
+                    if (success) {
+                        alert('Registration successful! You can now log in.');
+                        registerForm.reset();
+                        loginModal.style.display = 'none';
+                    } else {
+                        alert('There was an error with your registration. Please try again.');
+                    }
+                });
+            }
+
+            // Free Test Form Submission
+            const freeTestForm = document.getElementById('freeTestForm');
+            if (freeTestForm) {
+                freeTestForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('freeTestName').value.trim();
+                    const email = document.getElementById('freeTestEmail').value.trim();
+                    const mobile = document.getElementById('freeTestMobile').value.trim();
+                    
+                    if (!name || !email || !mobile) {
+                        alert('Please fill in all fields.');
+                        return;
+                    }
+                    
+                    const formData = {
+                        Name: name,
+                        Email: email,
+                        Mobile: mobile
+                    };
+                    
+                    const success = await submitToGoogleSheet(formData, 'Free_Test_Signups');
+                    
+                    if (success) {
+                        alert('Thank you! Your free test paper will begin downloading.');
+                        
+                        // Simulate download
+                        const downloadLink = document.createElement('a');
+                        downloadLink.href = 'https://drive.google.com/uc?export=download&id=1ztptHMUr3KXA_vq8It1bGsDQrc8d5rNG';
+                        downloadLink.download = 'caexam-Free-Test-Paper.pdf';
+                        document.body.appendChild(downloadLink);
+                        downloadLink.click();
+                        document.body.removeChild(downloadLink);
+                        
+                        freeTestForm.reset();
+                        freeTestModal.style.display = 'none';
+                    } else {
+                        alert('There was an error. Please try again.');
+                    }
+                });
+            }
+
+            // Signup Form Submission
+            const signupForm = document.getElementById('signupForm');
+            if (signupForm) {
+                signupForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('signupName').value.trim();
+                    const email = document.getElementById('signupEmail').value.trim();
+                    const mobile = document.getElementById('signupMobile').value.trim();
+                    const password = document.getElementById('signupPassword').value;
+                    
+                    if (!name || !email || !mobile || !password) {
+                        alert('Please fill in all fields.');
+                        return;
+                    }
+                    
+                    const formData = {
+                        Name: name,
+                        Email: email,
+                        Mobile: mobile
+                    };
+                    
+                    const success = await submitToGoogleSheet(formData, 'Free_Signups');
+                    
+                    if (success) {
+                        alert('Account created successfully! You now have access to free tests.');
+                        signupForm.reset();
+                        signupModal.style.display = 'none';
+                    } else {
+                        alert('There was an error creating your account. Please try again.');
+                    }
+                });
+            }
+
+            // Login Form Submission
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('loginEmail').value;
+                    const password = document.getElementById('loginPassword').value;
+                    
+                    if (!email || !password) {
+                        alert('Please enter email and password.');
+                        return;
+                    }
+                    
+                    alert('Login Successful!');
+                    window.location.href = 'student-dashboard.htm';
+                });
+            }
+
+            // Pricing Tabs
+            const pricingTabs = document.querySelectorAll('.pricing-tab');
+            const pricingPanels = document.querySelectorAll('.pricing-panel');
+
+            pricingTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    pricingTabs.forEach(t => t.classList.remove('active'));
+                    pricingPanels.forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                    const targetPanel = document.getElementById(`panel-${target}`);
+                    if (targetPanel) targetPanel.classList.add('active');
+                });
+            });
+
+            // Testimonial Slider
+            let currentSlideIndex = 0;
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.dot');
+
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                currentSlideIndex = (n + slides.length) % slides.length;
+                
+                slides[currentSlideIndex].classList.add('active');
+                dots[currentSlideIndex].classList.add('active');
+            }
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                });
+            });
+
+            // Auto slide testimonials
+            setInterval(() => {
+                showSlide(currentSlideIndex + 1);
+            }, 5000);
+
+            // Coupon Code Copy
+            const copyCouponBtn = document.getElementById('horizontalCouponBtn');
+            if (copyCouponBtn) {
+                copyCouponBtn.addEventListener('click', function() {
+                    const couponCode = 'SAVE100';
+                    navigator.clipboard.writeText(couponCode).then(() => {
+                        this.textContent = 'Copied!';
+                        setTimeout(() => {
+                            this.textContent = 'Copy Code';
+                        }, 2000);
+                    }).catch(err => {
+                        alert('Failed to copy. Please copy manually: SAVE100');
+                    });
+                });
+            }
+
+            // Language Switching
+            const languageSelect = document.getElementById('languageSelect');
+            if (languageSelect) {
+                languageSelect.addEventListener('change', function() {
+                    const lang = this.value;
+                    const elements = document.querySelectorAll('[data-en], [data-hi]');
+                    
+                    elements.forEach(element => {
+                        const text = element.getAttribute(`data-${lang}`);
+                        if (text) {
+                            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                                element.placeholder = text;
+                            } else {
+                                element.textContent = text;
+                            }
+                        }
+                    });
+                });
+            }
+
+            // Smooth Scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Newsletter Form
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const emailInput = this.querySelector('input[type="email"]');
+                    
+                    if (emailInput && !emailInput.value) {
+                        alert('Please enter your email address.');
+                        return;
+                    }
+                    
+                    alert('Thank you for subscribing to our newsletter!');
+                    this.reset();
+                });
+            }
+        });
+    </script>
 </body>
 </html>

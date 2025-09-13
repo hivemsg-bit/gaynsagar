@@ -1,5 +1,5 @@
 // 🔴 YAHAN APNA NAYA GOOGLE SCRIPT URL PASTE KAREIN 🔴
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxo_vnpARkwkPKSXCCfioLccO9JxbnvkZVlMzmBSljIPC5GlyHEBJ4v1kligmygeA1b6g/exec'; // ← PASTE YOUR REAL URL HERE!
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyFctXxeiTWBnftWRehWrtEF9iQlg7EMYMo1ibVjd4xrS_leODRdICS6fZzEV96SE4Lhw/exec'; // ← PASTE YOUR REAL URL HERE!
 
 // DOM Ready
 document.addEventListener('DOMContentLoaded', function() {

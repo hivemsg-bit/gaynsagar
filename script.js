@@ -14,12 +14,21 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
         
+        // Email validation
         if (formData.Email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.Email)) {
             alert('Please enter a valid email address.');
             return false;
         }
-        if (formData.EmailOrMobile && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.EmailOrMobile) && !/^\d{10}$/.test(formData.EmailOrMobile)) {
-            alert('Please enter a valid email or 10-digit mobile number.');
+        
+        // Mobile validation (10 digits)
+        if (formData.Mobile && !/^\d{10}$/.test(formData.Mobile)) {
+            alert('Please enter a valid 10-digit mobile number.');
+            return false;
+        }
+        
+        // Name validation
+        if (formData.Name && formData.Name.trim().length < 2) {
+            alert('Please enter a valid name (minimum 2 characters).');
             return false;
         }
 
@@ -57,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Mobile Navigation
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
 
@@ -77,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Main Login/Register Modal
     const loginBtn = document.getElementById('loginBtn');
     const loginModal = document.getElementById('loginModal');
     const closeModal = document.getElementById('closeModal');
@@ -104,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Tab Switching in Main Modal
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
@@ -118,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Form Submissions (Login & Register)
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
@@ -144,7 +157,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const fullName = document.getElementById('regName')?.value.trim();
             const email = document.getElementById('regEmail')?.value.trim();
-            if (!fullName || !email) {
+            const mobile = document.getElementById('regMobile')?.value.trim();
+            
+            if (!fullName || !email || !mobile) {
                 alert('Please fill in all fields.');
                 submitButton.textContent = 'Register';
                 submitButton.disabled = false;
@@ -152,8 +167,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             const formData = {
-                FullName: fullName,
-                Email: email
+                Name: fullName,
+                Email: email,
+                Mobile: mobile
             };
 
             const success = await submitToGoogleSheet(formData, 'Registrations');
@@ -169,6 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Free Test Modal & Form Logic
     const openFreeTestModalBtns = document.querySelectorAll('.open-free-test-modal');
     const closeFreeTestModal = document.getElementById('closeFreeTestModal');
     const freeTestForm = document.getElementById('freeTestForm');
@@ -233,6 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Pricing Tabs
     const pricingTabs = document.querySelectorAll('.pricing-tab');
     const pricingPanels = document.querySelectorAll('.pricing-panel');
 
@@ -247,6 +265,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Testimonial Slider
     let currentSlideIndex = 0;
     const slides = document.querySelectorAll('.testimonial-slide');
     const dots = document.querySelectorAll('.dot');
@@ -280,6 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
         startSlider();
     }
 
+    // Coupon Code Copy Functionality
     const copyCouponBtn = document.getElementById('horizontalCouponBtn');
     if (copyCouponBtn) {
         const originalText = copyCouponBtn.dataset.en || copyCouponBtn.textContent;
@@ -298,6 +318,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Language Switching
     const languageSelect = document.getElementById('languageSelect');
     if (languageSelect) {
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
@@ -325,6 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -340,6 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Newsletter Form
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {
